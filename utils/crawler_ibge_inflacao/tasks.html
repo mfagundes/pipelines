@@ -1,0 +1,1437 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>pipelines.utils.crawler_ibge_inflacao.tasks API documentation</title>
+<meta name="description" content="Tasks for br_ibge_inpc" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pipelines.utils.crawler_ibge_inflacao.tasks</code></h1>
+</header>
+<section id="section-intro">
+<p>Tasks for br_ibge_inpc</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python"># -*- coding: utf-8 -*-
+&#34;&#34;&#34;
+Tasks for br_ibge_inpc
+&#34;&#34;&#34;
+# pylint: disable=line-too-long, W0702, E1101, W0212
+import glob
+import errno
+import os
+from time import sleep
+import ssl
+
+import pandas as pd
+from prefect import task
+from tqdm import tqdm
+import wget
+
+from pipelines.utils.utils import log
+
+# necessary for use wget, see: https://stackoverflow.com/questions/35569042/ssl-certificate-verify-failed-with-python3
+ssl._create_default_https_context = ssl._create_unverified_context
+# pylint: disable=C0206
+# pylint: disable=C0201
+# pylint: disable=R0914
+
+
+@task
+def crawler(indice: str, folder: str) -&gt; bool:
+    &#34;&#34;&#34;
+    Crawler for IBGE Inflacao
+
+    indice: inpc | ipca | ip15
+    folder: br | rm | mun | mes
+    &#34;&#34;&#34;
+    if folder not in [&#34;br&#34;, &#34;rm&#34;, &#34;mun&#34;, &#34;mes&#34;]:
+        raise ValueError(
+            &#34;folder argument must be one of the following: &#39;br&#39;, &#39;rm&#39;, &#39;mun&#39;, &#39;mes&#39;&#34;
+        )
+
+    if indice not in [&#34;inpc&#34;, &#34;ipca&#34;, &#34;ip15&#34;]:
+        raise ValueError(
+            &#34;indice argument must be one of the following: &#39;inpc&#39;, &#39;ipca&#39;, &#39;ip15&#39;&#34;
+        )
+
+    log(f&#34;Crawling {indice}&#34;)
+    os.system(&#34;[ -e /tmp/data/input/ ] &amp;&amp; rm -r /tmp/data/input/&#34;)
+    os.system(&#34;[ -e /tmp/data/output/ ] &amp;&amp; rm -r /tmp/data/output/&#34;)
+    os.system(&#39;mkdir -p &#34;/tmp/data&#34;&#39;)
+    os.system(&#39;mkdir -p &#34;/tmp/data/input&#34;&#39;)
+    os.system(&#39;mkdir -p &#34;/tmp/data/input/br&#34;&#39;)
+    os.system(&#39;mkdir -p &#34;/tmp/data/input/rm&#34;&#39;)
+    os.system(&#39;mkdir -p &#34;/tmp/data/input/mun&#34;&#39;)
+    os.system(&#39;mkdir -p &#34;/tmp/data/input/mes&#34;&#39;)
+    os.system(&#39;mkdir -p &#34;/tmp/data/output&#34;&#39;)
+    os.system(&#39;mkdir -p &#34;/tmp/data/output/ip15&#34;&#39;)
+    os.system(&#39;mkdir -p &#34;/tmp/data/output/ipca&#34;&#39;)
+    os.system(&#39;mkdir -p &#34;/tmp/data/output/inpc&#34;&#39;)
+    log(os.system(&#34;tree /tmp/data&#34;))
+    links = {
+        &#34;br/ipca_grupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7060.csv&amp;terr=NC&amp;rank=-&amp;query=t/7060/n1/all/v/all/p/all/c315/7170,7445,7486,7558,7625,7660,7712,7766,7786/d/v63%202,v66%204,v69%202,v2265%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;br/inpc_grupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7063.csv&amp;terr=NC&amp;rank=-&amp;query=t/7063/n1/all/v/all/p/all/c315/7170,7445,7486,7558,7625,7660,7712,7766,7786/d/v44%202,v45%204,v68%202,v2292%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;br/ip15_grupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7062.csv&amp;terr=NC&amp;rank=-&amp;query=t/7062/n1/all/v/all/p/all/c315/7170,7445,7486,7558,7625,7660,7712,7766,7786/d/v355%202,v356%202,v357%204,v1120%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;br/ipca_subgrupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7060.csv&amp;terr=NC&amp;rank=-&amp;query=t/7060/n1/all/v/all/p/all/c315/7171,7432,7446,7479,7487,7521,7548,7559,7604,7615,7620,7626,7661,7683,7697,7713,7767,7787,47656/d/v63%202,v66%204,v69%202,v2265%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;br/inpc_subgrupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7063.csv&amp;terr=NC&amp;rank=-&amp;query=t/7063/n1/all/v/all/p/all/c315/7171,7432,7446,7479,7487,7521,7548,7559,7604,7615,7620,7626,7661,7683,7697,7713,7767,7787,47656/d/v44%202,v45%204,v68%202,v2292%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;br/ip15_subgrupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7062.csv&amp;terr=NC&amp;rank=-&amp;query=t/7062/n1/all/v/all/p/all/c315/7171,7432,7446,7479,7487,7521,7548,7559,7604,7615,7620,7626,7661,7683,7697,7713,7767,7787,47656/d/v355%202,v356%202,v357%204,v1120%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;br/ipca_item&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7060.csv&amp;terr=NC&amp;rank=-&amp;query=t/7060/n1/all/v/all/p/all/c315/7172,7184,7200,7219,7241,7254,7283,7303,7335,7349,7356,7372,7384,7389,7401,7415,7433,7447,7454,7461,7480,7484,7488,7495,7517,7522,7541,7549,7560,7572,7587,7605,7616,7621,7627,7640,7656,7662,7684,7690,7695,7698,7714,7730,7758,7777,7782,7788,12427,107678,109464/d/v63%202,v66%204,v69%202,v2265%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;br/inpc_item&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7063.csv&amp;terr=NC&amp;rank=-&amp;query=t/7063/n1/all/v/all/p/all/c315/7172,7184,7200,7219,7241,7254,7283,7303,7335,7349,7356,7372,7384,7389,7401,7415,7433,7447,7454,7461,7480,7484,7488,7495,7517,7522,7541,7549,7560,7572,7587,7605,7616,7621,7627,7640,7656,7662,7684,7690,7695,7698,7714,7730,7758,7777,7782,7788,12427,107678,109464/d/v44%202,v45%204,v68%202,v2292%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;br/ip15_item&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7062.csv&amp;terr=NC&amp;rank=-&amp;query=t/7062/n1/all/v/all/p/all/c315/7172,7184,7200,7219,7241,7254,7283,7303,7335,7349,7356,7372,7384,7389,7401,7415,7433,7447,7454,7461,7480,7484,7488,7495,7517,7522,7541,7549,7560,7572,7587,7605,7616,7621,7627,7640,7656,7662,7684,7690,7695,7698,7714,7730,7758,7777,7782,7788,12427,107678,109464/d/v355%202,v356%202,v357%204,v1120%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;br/ipca_subitem&#34;: &#34;https://sidra.ibge.gov.br/geratabela/DownloadSelecaoComplexa/947075621&#34;,
+        &#34;br/inpc_subitem&#34;: &#34;https://sidra.ibge.gov.br/geratabela/DownloadSelecaoComplexa/1084704443&#34;,
+        &#34;br/ip15_subitem&#34;: &#34;https://sidra.ibge.gov.br/geratabela/DownloadSelecaoComplexa/-783617233&#34;,
+        &#34;br/ipca_geral&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7060.csv&amp;terr=NC&amp;rank=-&amp;query=t/7060/n1/all/v/all/p/all/c315/7169/d/v63%202,v66%204,v69%202,v2265%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;br/inpc_geral&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7063.csv&amp;terr=NC&amp;rank=-&amp;query=t/7063/n1/all/v/all/p/all/c315/7169/d/v44%202,v45%204,v68%202,v2292%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;br/ip15_geral&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7062.csv&amp;terr=NC&amp;rank=-&amp;query=t/7062/n1/all/v/all/p/all/c315/7169/d/v355%202,v356%202,v357%204,v1120%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;rm/ipca_grupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7060.csv&amp;terr=NC&amp;rank=-&amp;query=t/7060/n7/all/v/all/p/all/c315/7170,7445,7486,7558,7625,7660,7712,7766,7786/d/v63%202,v66%204,v69%202,v2265%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;rm/inpc_grupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7063.csv&amp;terr=NC&amp;rank=-&amp;query=t/7063/n7/all/v/all/p/all/c315/7170,7445,7486,7558,7625,7660,7712,7766,7786/d/v44%202,v45%204,v68%202,v2292%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;rm/ip15_grupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7062.csv&amp;terr=NC&amp;rank=-&amp;query=t/7062/n7/all/v/all/p/all/c315/7170,7445,7486,7558,7625,7660,7712,7766,7786/d/v355%202,v356%202,v357%204,v1120%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;rm/ipca_subgrupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7060.csv&amp;terr=NC&amp;rank=-&amp;query=t/7060/n7/all/v/all/p/all/c315/7171,7432,7446,7479,7487,7521,7548,7559,7604,7615,7620,7626,7661,7683,7697,7713,7767,7787,47656/d/v63%202,v66%204,v69%202,v2265%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;rm/inpc_subgrupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7063.csv&amp;terr=NC&amp;rank=-&amp;query=t/7063/n7/all/v/all/p/all/c315/7171,7432,7446,7479,7487,7521,7548,7559,7604,7615,7620,7626,7661,7683,7697,7713,7767,7787,47656/d/v44%202,v45%204,v68%202,v2292%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;rm/ip15_subgrupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7062.csv&amp;terr=NC&amp;rank=-&amp;query=t/7062/n7/all/v/all/p/all/c315/7171,7432,7446,7479,7487,7521,7548,7559,7604,7615,7620,7626,7661,7683,7697,7713,7767,7787,47656/d/v355%202,v356%202,v357%204,v1120%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;rm/ipca_item&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7060.csv&amp;terr=NC&amp;rank=-&amp;query=t/7060/n7/all/v/all/p/all/c315/7172,7184,7200,7219,7241,7254,7283,7303,7335,7349,7356,7372,7384,7389,7401,7415,7433,7447,7454,7461,7480,7484,7488,7495,7517,7522,7541,7549,7560,7572,7587,7605,7616,7621,7627,7640,7656,7662,7684,7690,7695,7698,7714,7730,7758,7777,7782,7788,12427,107678,109464/d/v63%202,v66%204,v69%202,v2265%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;rm/inpc_item&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7063.csv&amp;terr=NC&amp;rank=-&amp;query=t/7063/n7/all/v/all/p/all/c315/7172,7184,7200,7219,7241,7254,7283,7303,7335,7349,7356,7372,7384,7389,7401,7415,7433,7447,7454,7461,7480,7484,7488,7495,7517,7522,7541,7549,7560,7572,7587,7605,7616,7621,7627,7640,7656,7662,7684,7690,7695,7698,7714,7730,7758,7777,7782,7788,12427,107678,109464/d/v44%202,v45%204,v68%202,v2292%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;rm/ip15_item&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7062.csv&amp;terr=NC&amp;rank=-&amp;query=t/7062/n7/all/v/all/p/all/c315/7172,7184,7200,7219,7241,7254,7283,7303,7335,7349,7356,7372,7384,7389,7401,7415,7433,7447,7454,7461,7480,7484,7488,7495,7517,7522,7541,7549,7560,7572,7587,7605,7616,7621,7627,7640,7656,7662,7684,7690,7695,7698,7714,7730,7758,7777,7782,7788,12427,107678,109464/d/v355%202,v356%202,v357%204,v1120%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;rm/ipca_subitem_1&#34;: &#34;https://sidra.ibge.gov.br/geratabela/DownloadSelecaoComplexa/947075621&#34;,
+        &#34;rm/ipca_subitem_2&#34;: &#34;https://sidra.ibge.gov.br/geratabela/DownloadSelecaoComplexa/847634158&#34;,
+        &#34;rm/inpc_subitem_1&#34;: &#34;https://sidra.ibge.gov.br/geratabela/DownloadSelecaoComplexa/-884745035&#34;,
+        &#34;rm/inpc_subitem_2&#34;: &#34;https://sidra.ibge.gov.br/geratabela/DownloadSelecaoComplexa/-1265010694&#34;,
+        &#34;rm/ip15_subitem_1&#34;: &#34;https://sidra.ibge.gov.br/geratabela/DownloadSelecaoComplexa/-1750716307&#34;,
+        &#34;rm/ip15_subitem_2&#34;: &#34;https://sidra.ibge.gov.br/geratabela/DownloadSelecaoComplexa/-1258570016&#34;,
+        &#34;rm/ipca_geral&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7060.csv&amp;terr=NC&amp;rank=-&amp;query=t/7060/n7/all/v/all/p/all/c315/7169/d/v63%202,v66%204,v69%202,v2265%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;rm/inpc_geral&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7063.csv&amp;terr=NC&amp;rank=-&amp;query=t/7063/n7/all/v/all/p/all/c315/7169/d/v44%202,v45%204,v68%202,v2292%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;rm/ip15_geral&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7062.csv&amp;terr=NC&amp;rank=-&amp;query=t/7062/n7/all/v/all/p/all/c315/7169/d/v355%202,v356%202,v357%204,v1120%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;mun/ipca_grupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7060.csv&amp;terr=NC&amp;rank=-&amp;query=t/7060/n6/all/v/all/p/all/c315/7170,7445,7486,7558,7625,7660,7712,7766,7786/d/v63%202,v66%204,v69%202,v2265%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;mun/inpc_grupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7063.csv&amp;terr=NC&amp;rank=-&amp;query=t/7063/n6/all/v/all/p/all/c315/7170,7445,7486,7558,7625,7660,7712,7766,7786/d/v44%202,v45%204,v68%202,v2292%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;mun/ip15_grupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7062.csv&amp;terr=NC&amp;rank=-&amp;query=t/7062/n6/all/v/all/p/all/c315/7170,7445,7486,7558,7625,7660,7712,7766,7786/d/v355%202,v356%202,v357%204,v1120%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;mun/ipca_subgrupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7060.csv&amp;terr=NC&amp;rank=-&amp;query=t/7060/n6/all/v/all/p/all/c315/7171,7432,7446,7479,7487,7521,7548,7559,7604,7615,7620,7626,7661,7683,7697,7713,7767,7787,47656/d/v63%202,v66%204,v69%202,v2265%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;mun/inpc_subgrupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7063.csv&amp;terr=NC&amp;rank=-&amp;query=t/7063/n6/all/v/all/p/all/c315/7171,7432,7446,7479,7487,7521,7548,7559,7604,7615,7620,7626,7661,7683,7697,7713,7767,7787,47656/d/v44%202,v45%204,v68%202,v2292%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;mun/ip15_subgrupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7062.csv&amp;terr=NC&amp;rank=-&amp;query=t/7062/n6/all/v/all/p/all/c315/7171,7432,7446,7479,7487,7521,7548,7559,7604,7615,7620,7626,7661,7683,7697,7713,7767,7787,47656/d/v355%202,v356%202,v357%204,v1120%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;mun/ipca_item&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7060.csv&amp;terr=NC&amp;rank=-&amp;query=t/7060/n6/all/v/all/p/all/c315/7172,7184,7200,7219,7241,7254,7283,7303,7335,7349,7356,7372,7384,7389,7401,7415,7433,7447,7454,7461,7480,7484,7488,7495,7517,7522,7541,7549,7560,7572,7587,7605,7616,7621,7627,7640,7656,7662,7684,7690,7695,7698,7714,7730,7758,7777,7782,7788,12427,107678,109464/d/v63%202,v66%204,v69%202,v2265%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;mun/inpc_item&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7063.csv&amp;terr=NC&amp;rank=-&amp;query=t/7063/n6/all/v/all/p/all/c315/7172,7184,7200,7219,7241,7254,7283,7303,7335,7349,7356,7372,7384,7389,7401,7415,7433,7447,7454,7461,7480,7484,7488,7495,7517,7522,7541,7549,7560,7572,7587,7605,7616,7621,7627,7640,7656,7662,7684,7690,7695,7698,7714,7730,7758,7777,7782,7788,12427,107678,109464/d/v44%202,v45%204,v68%202,v2292%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;mun/ip15_item&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7062.csv&amp;terr=NC&amp;rank=-&amp;query=t/7062/n6/all/v/all/p/all/c315/7172,7184,7200,7219,7241,7254,7283,7303,7335,7349,7356,7372,7384,7389,7401,7415,7433,7447,7454,7461,7480,7484,7488,7495,7517,7522,7541,7549,7560,7572,7587,7605,7616,7621,7627,7640,7656,7662,7684,7690,7695,7698,7714,7730,7758,7777,7782,7788,12427,107678,109464/d/v355%202,v356%202,v357%204,v1120%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;mun/ipca_subitem_1&#34;: &#34;https://sidra.ibge.gov.br/geratabela/DownloadSelecaoComplexa/866963382&#34;,
+        &#34;mun/ipca_subitem_2&#34;: &#34;https://sidra.ibge.gov.br/geratabela/DownloadSelecaoComplexa/-113176757&#34;,
+        &#34;mun/inpc_subitem_1&#34;: &#34;https://sidra.ibge.gov.br/geratabela/DownloadSelecaoComplexa/1139761886&#34;,
+        &#34;mun/inpc_subitem_2&#34;: &#34;https://sidra.ibge.gov.br/geratabela/DownloadSelecaoComplexa/-1289673003&#34;,
+        &#34;mun/ip15_subitem_1&#34;: &#34;https://sidra.ibge.gov.br/geratabela/DownloadSelecaoComplexa/-260564956&#34;,
+        &#34;mun/ip15_subitem_2&#34;: &#34;https://sidra.ibge.gov.br/geratabela/DownloadSelecaoComplexa/-317614754&#34;,
+        &#34;mun/ipca_geral&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7060.csv&amp;terr=NC&amp;rank=-&amp;query=t/7060/n6/all/v/all/p/all/c315/7169/d/v63%202,v66%204,v69%202,v2265%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;mun/inpc_geral&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7063.csv&amp;terr=NC&amp;rank=-&amp;query=t/7063/n6/all/v/all/p/all/c315/7169/d/v44%202,v45%204,v68%202,v2292%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;mun/ip15_geral&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7062.csv&amp;terr=NC&amp;rank=-&amp;query=t/7062/n6/all/v/all/p/all/c315/7169/d/v355%202,v356%202,v357%204,v1120%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;mes/ipca_geral&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela1737.csv&amp;terr=N&amp;rank=-&amp;query=t/1737/n1/all/v/all/p/all/d/v63%202,v69%202,v2263%202,v2264%202,v2265%202,v2266%2013/l/,v,t%2Bp&amp;abreviarRotulos=True&amp;exibirNotas=False&#34;,
+        &#34;mes/ip15_geral&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela3065.csv&amp;terr=N&amp;rank=-&amp;query=t/3065/n1/all/v/all/p/all/d/v355%202,v356%202,v1117%2013,v1118%202,v1119%202,v1120%202/l/,v,t%2Bp&amp;abreviarRotulos=True&amp;exibirNotas=False&#34;,
+        &#34;mes/inpc_geral&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela1736.csv&amp;terr=N&amp;rank=-&amp;query=t/1736/n1/all/v/all/p/all/d/v44%202,v68%202,v2289%2013,v2290%202,v2291%202,v2292%202/l/,v,t%2Bp&amp;abreviarRotulos=True&amp;exibirNotas=False&#34;,
+    }
+
+    links = {
+        k: v
+        for k, v in links.items()
+        if k.__contains__(indice) &amp; k.__contains__(folder)
+    }
+    # precisei adicionar try catchs no loop para conseguir baixar todas
+    # as tabelas sem ter pproblema com o limite de requisição do sidra
+    links_keys = list(links.keys())
+    success_dwnl = []
+    for key in tqdm(links_keys):
+        try:
+            wget.download(links[key], out=f&#34;/tmp/data/input/{key}.csv&#34;)
+            success_dwnl.append(key)
+        except Exception:
+            try:
+                sleep(10)
+                wget.download(links[key], out=f&#34;/tmp/data/input/{key}.csv&#34;)
+                success_dwnl.append(key)
+            except Exception:
+                pass
+
+    log(os.system(&#34;tree /tmp/data&#34;))
+    if len(links_keys) == len(success_dwnl):
+        log(&#34;All files were successfully downloaded&#34;)
+        return True
+
+    log(&#34;The folowing files failed to download:&#34;)
+    rems = set(links_keys) - set(success_dwnl)
+    for rem in rems:
+        log(rem)
+    return False
+
+
+@task
+def clean_mes_brasil(indice: str) -&gt; None:
+    &#34;&#34;&#34;
+    Clean the data from the mes_brasil dataset.
+    &#34;&#34;&#34;
+
+    if indice not in [&#34;inpc&#34;, &#34;ipca&#34;, &#34;ip15&#34;]:
+        raise ValueError(
+            &#34;indice argument must be one of the following: &#39;inpc&#39;, &#39;ipca&#39;, &#39;ip15&#39;&#34;
+        )
+    rename = {
+        &#34;Mês&#34;: &#34;ano&#34;,
+        &#34;Geral, grupo, subgrupo, item e subitem&#34;: &#34;categoria&#34;,
+        &#34;IPCA - Variação mensal (%)&#34;: &#34;variacao_mensal&#34;,
+        &#34;IPCA - Variação acumulada no ano (%)&#34;: &#34;variacao_anual&#34;,
+        &#34;IPCA - Variação acumulada em 12 meses (%)&#34;: &#34;variacao_doze_meses&#34;,
+        &#34;IPCA - Peso mensal (%)&#34;: &#34;peso_mensal&#34;,
+        &#34;INPC - Variação mensal (%)&#34;: &#34;variacao_mensal&#34;,
+        &#34;INPC - Variação acumulada no ano (%)&#34;: &#34;variacao_anual&#34;,
+        &#34;INPC - Variação acumulada em 12 meses (%)&#34;: &#34;variacao_doze_meses&#34;,
+        &#34;INPC - Peso mensal (%)&#34;: &#34;peso_mensal&#34;,
+        &#34;IPCA15 - Variação mensal (%)&#34;: &#34;variacao_mensal&#34;,
+        &#34;IPCA15 - Variação acumulada no ano (%)&#34;: &#34;variacao_anual&#34;,
+        &#34;IPCA15 - Variação acumulada em 12 meses (%)&#34;: &#34;variacao_doze_meses&#34;,
+        &#34;IPCA15 - Peso mensal (%)&#34;: &#34;peso_mensal&#34;,
+    }
+
+    ordem = [
+        &#34;ano&#34;,
+        &#34;mes&#34;,
+        &#34;id_categoria&#34;,
+        &#34;id_categoria_bd&#34;,
+        &#34;categoria&#34;,
+        &#34;peso_mensal&#34;,
+        &#34;variacao_mensal&#34;,
+        &#34;variacao_anual&#34;,
+        &#34;variacao_doze_meses&#34;,
+    ]
+
+    n_mes = {
+        &#34;janeiro&#34;: &#34;1&#34;,
+        &#34;fevereiro&#34;: &#34;2&#34;,
+        &#34;março&#34;: &#34;3&#34;,
+        &#34;abril&#34;: &#34;4&#34;,
+        &#34;maio&#34;: &#34;5&#34;,
+        &#34;junho&#34;: &#34;6&#34;,
+        &#34;julho&#34;: &#34;7&#34;,
+        &#34;agosto&#34;: &#34;8&#34;,
+        &#34;setembro&#34;: &#34;9&#34;,
+        &#34;outubro&#34;: &#34;10&#34;,
+        &#34;novembro&#34;: &#34;11&#34;,
+        &#34;dezembro&#34;: &#34;12&#34;,
+    }
+    arquivos = [
+        arquivo
+        for arquivo in glob.iglob(&#34;/tmp/data/input/br/*&#34;)
+        if arquivo.split(&#34;/&#34;)[-1].split(&#34;_&#34;)[0] == indice
+    ]
+
+    if len(arquivos) == 0:
+        raise FileNotFoundError(
+            errno.ENOENT,
+            os.strerror(errno.ENOENT),
+            &#34;/tmp/data/input/br. Please, check if br is the value of FOLDER arg in crawler task and if the files was downloaded and if the files was downloaded&#34;,
+        )
+    for arq in arquivos:
+        dataframe = pd.read_csv(arq, skipfooter=14, skiprows=2, sep=&#34;;&#34;, dtype=&#34;str&#34;)
+        # renomear colunas
+        dataframe.rename(columns=rename, inplace=True)
+        # substituir &#34;...&#34; por vazio
+        dataframe = dataframe.replace(&#34;...&#34;, &#34;&#34;)
+        dataframe = dataframe.replace(&#34;-&#34;, &#34;&#34;)
+
+        # Normalizando float
+        dataframe = dataframe.replace(&#34;,&#34;, &#34;.&#34;, regex=True)
+
+        # Split coluna data e substituir mes
+        dataframe[[&#34;mes&#34;, &#34;ano&#34;]] = dataframe[&#34;ano&#34;].str.split(&#34; &#34;, 1, expand=True)
+        dataframe[&#34;mes&#34;] = dataframe[&#34;mes&#34;].map(n_mes)
+
+        # Split coluna categoria e add id_categoria_bd
+        if arq.split(&#34;_&#34;)[-1].split(&#34;.&#34;)[0] != &#34;geral&#34;:
+            dataframe[[&#34;id_categoria&#34;, &#34;categoria&#34;]] = dataframe[&#34;categoria&#34;].str.split(
+                &#34;.&#34;, 1, expand=True
+            )
+
+        if arq.split(&#34;_&#34;)[-1].split(&#34;.&#34;)[0] == &#34;grupo&#34;:
+            dataframe[&#34;id_categoria_bd&#34;] = dataframe[&#34;id_categoria&#34;].apply(
+                lambda x: x + &#34;.0.00.000&#34;
+            )
+            dataframe = dataframe[ordem]
+            grupo = pd.DataFrame(dataframe)
+        elif arq.split(&#34;_&#34;)[-1].split(&#34;.&#34;)[0] == &#34;subgrupo&#34;:
+            dataframe[&#34;id_categoria_bd&#34;] = dataframe[&#34;id_categoria&#34;].apply(
+                lambda x: f&#34;{x[0]}.{x[1]}.00.000&#34;
+            )
+
+            dataframe = dataframe[ordem]
+            subgrupo = pd.DataFrame(dataframe)
+        elif arq.split(&#34;_&#34;)[-1].split(&#34;.&#34;)[0] == &#34;item&#34;:
+            dataframe[&#34;id_categoria_bd&#34;] = dataframe[&#34;id_categoria&#34;].apply(
+                lambda x: f&#34;{x[0]}.{x[1]}.{x[2:4]}.000&#34;
+            )
+
+            dataframe = dataframe[ordem]
+            item = pd.DataFrame(dataframe)
+        elif arq.split(&#34;_&#34;)[-1].split(&#34;.&#34;)[0] == &#34;subitem&#34;:
+            dataframe[&#34;id_categoria_bd&#34;] = dataframe[&#34;id_categoria&#34;].apply(
+                lambda x: f&#34;{x[0]}.{x[1]}.{x[2:4]}.{x[4:7]}&#34;
+            )
+
+            dataframe = dataframe[ordem]
+            subitem = pd.DataFrame(dataframe)
+        elif arq.split(&#34;_&#34;)[-1].split(&#34;.&#34;)[0] == &#34;geral&#34;:
+            dataframe[&#34;id_categoria&#34;] = &#34;&#34;
+            dataframe[&#34;id_categoria_bd&#34;] = &#34;0.0.00.000&#34;
+            dataframe = dataframe[ordem]
+            geral = pd.DataFrame(dataframe)
+
+    # pylint: disable=E0602
+    # Add only dataframes defined in previous loop. Download failure leads to some dataframe not being defined
+    files_dict = {
+        &#34;grupo&#34;: grupo if &#34;grupo&#34; in locals() else &#34;&#34;,
+        &#34;subgrupo&#34;: subgrupo if &#34;subgrupo&#34; in locals() else &#34;&#34;,
+        &#34;item&#34;: item if &#34;item&#34; in locals() else &#34;&#34;,
+        &#34;subitem&#34;: subitem if &#34;subitem&#34; in locals() else &#34;&#34;,
+        &#34;geral&#34;: geral if &#34;geral&#34; in locals() else &#34;&#34;,
+    }
+
+    downloaded = [
+        k for k in files_dict.keys() if isinstance(files_dict[k], pd.DataFrame)
+    ]
+    dataframe = pd.concat([files_dict[k] for k in downloaded])
+    filepath = f&#34;/tmp/data/output/{indice}/categoria_brasil.csv&#34;
+    dataframe.to_csv(filepath, index=False)
+    log(os.system(&#34;tree /tmp/data&#34;))
+
+    return filepath
+
+
+@task
+def clean_mes_rm(indice: str):
+    &#34;&#34;&#34;
+    Clean mes_rm
+    &#34;&#34;&#34;
+    if indice not in [&#34;inpc&#34;, &#34;ipca&#34;, &#34;ip15&#34;]:
+        raise ValueError(
+            &#34;indice argument must be one of the following: &#39;inpc&#39;, &#39;ipca&#39;, &#39;ip15&#39;&#34;
+        )
+    rename = {
+        &#34;Cód.&#34;: &#34;id_regiao_metropolitana&#34;,
+        &#34;Unnamed: 1&#34;: &#34;rm&#34;,
+        &#34;Mês&#34;: &#34;ano&#34;,
+        &#34;Geral, grupo, subgrupo, item e subitem&#34;: &#34;categoria&#34;,
+        &#34;IPCA - Variação mensal (%)&#34;: &#34;variacao_mensal&#34;,
+        &#34;IPCA - Variação acumulada no ano (%)&#34;: &#34;variacao_anual&#34;,
+        &#34;IPCA - Variação acumulada em 12 meses (%)&#34;: &#34;variacao_doze_meses&#34;,
+        &#34;IPCA - Peso mensal (%)&#34;: &#34;peso_mensal&#34;,
+        &#34;INPC - Variação mensal (%)&#34;: &#34;variacao_mensal&#34;,
+        &#34;INPC - Variação acumulada no ano (%)&#34;: &#34;variacao_anual&#34;,
+        &#34;INPC - Variação acumulada em 12 meses (%)&#34;: &#34;variacao_doze_meses&#34;,
+        &#34;INPC - Peso mensal (%)&#34;: &#34;peso_mensal&#34;,
+        &#34;IPCA15 - Variação mensal (%)&#34;: &#34;variacao_mensal&#34;,
+        &#34;IPCA15 - Variação acumulada no ano (%)&#34;: &#34;variacao_anual&#34;,
+        &#34;IPCA15 - Variação acumulada em 12 meses (%)&#34;: &#34;variacao_doze_meses&#34;,
+        &#34;IPCA15 - Peso mensal (%)&#34;: &#34;peso_mensal&#34;,
+    }
+
+    ordem = [
+        &#34;ano&#34;,
+        &#34;mes&#34;,
+        &#34;id_regiao_metropolitana&#34;,
+        &#34;id_categoria&#34;,
+        &#34;id_categoria_bd&#34;,
+        &#34;categoria&#34;,
+        &#34;peso_mensal&#34;,
+        &#34;variacao_mensal&#34;,
+        &#34;variacao_anual&#34;,
+        &#34;variacao_doze_meses&#34;,
+    ]
+
+    n_mes = {
+        &#34;janeiro&#34;: &#34;1&#34;,
+        &#34;fevereiro&#34;: &#34;2&#34;,
+        &#34;março&#34;: &#34;3&#34;,
+        &#34;abril&#34;: &#34;4&#34;,
+        &#34;maio&#34;: &#34;5&#34;,
+        &#34;junho&#34;: &#34;6&#34;,
+        &#34;julho&#34;: &#34;7&#34;,
+        &#34;agosto&#34;: &#34;8&#34;,
+        &#34;setembro&#34;: &#34;9&#34;,
+        &#34;outubro&#34;: &#34;10&#34;,
+        &#34;novembro&#34;: &#34;11&#34;,
+        &#34;dezembro&#34;: &#34;12&#34;,
+    }
+    arquivos = [
+        arquivo
+        for arquivo in glob.iglob(&#34;/tmp/data/input/rm/*&#34;)
+        if arquivo.split(&#34;/&#34;)[-1].split(&#34;_&#34;)[0] == indice
+    ]
+
+    if len(arquivos) == 0:
+        raise FileNotFoundError(
+            errno.ENOENT,
+            os.strerror(errno.ENOENT),
+            &#34;/tmp/data/input/rm. Please, check if rm is the value of FOLDER arg in crawler task and if the files was downloaded&#34;,
+        )
+
+    for arq in arquivos:
+        log(arq)
+        dataframe = pd.read_csv(arq, skipfooter=14, skiprows=2, sep=&#34;;&#34;, dtype=&#34;str&#34;)
+        # renomear colunas
+        dataframe.rename(columns=rename, inplace=True)
+        # substituir &#34;...&#34; por vazio
+        dataframe = dataframe.replace(&#34;...&#34;, &#34;&#34;)
+        dataframe = dataframe.replace(&#34;-&#34;, &#34;&#34;)
+
+        # Normalizando float
+        dataframe = dataframe.replace(&#34;,&#34;, &#34;.&#34;, regex=True)
+
+        # Split coluna data e substituir mes
+        dataframe[[&#34;mes&#34;, &#34;ano&#34;]] = dataframe[&#34;ano&#34;].str.split(&#34; &#34;, 1, expand=True)
+        dataframe[&#34;mes&#34;] = dataframe[&#34;mes&#34;].map(n_mes)
+
+        # Split coluna categoria e add id_categoria_bd
+        if arq.split(&#34;_&#34;)[-1].split(&#34;.&#34;)[0] != &#34;geral&#34;:
+            dataframe[[&#34;id_categoria&#34;, &#34;categoria&#34;]] = dataframe[&#34;categoria&#34;].str.split(
+                &#34;.&#34;, 1, expand=True
+            )
+
+        if arq.split(&#34;_&#34;)[-1].split(&#34;.&#34;)[0] == &#34;grupo&#34;:
+            dataframe[&#34;id_categoria_bd&#34;] = dataframe[&#34;id_categoria&#34;].apply(
+                lambda x: x + &#34;.0.00.000&#34;
+            )
+            dataframe = dataframe[ordem]
+            grupo = pd.DataFrame(dataframe)
+        elif arq.split(&#34;_&#34;)[-1].split(&#34;.&#34;)[0] == &#34;subgrupo&#34;:
+            dataframe[&#34;id_categoria_bd&#34;] = dataframe[&#34;id_categoria&#34;].apply(
+                lambda x: x[0] + &#34;.&#34; + x[1] + &#34;.00.000&#34;
+            )
+            dataframe = dataframe[ordem]
+            subgrupo = pd.DataFrame(dataframe)
+        elif arq.split(&#34;_&#34;)[-1].split(&#34;.&#34;)[0] == &#34;item&#34;:
+            dataframe[&#34;id_categoria_bd&#34;] = dataframe[&#34;id_categoria&#34;].apply(
+                lambda x: x[0] + &#34;.&#34; + x[1] + &#34;.&#34; + x[2:4] + &#34;.000&#34;
+            )
+            dataframe = dataframe[ordem]
+            item = pd.DataFrame(dataframe)
+        elif &#34;_&#34;.join(arq.split(&#34;_&#34;)[1:]).split(&#34;.&#34;, maxsplit=1)[0] == &#34;subitem_1&#34;:
+            dataframe[&#34;id_categoria_bd&#34;] = dataframe[&#34;id_categoria&#34;].apply(
+                lambda x: x[0] + &#34;.&#34; + x[1] + &#34;.&#34; + x[2:4] + &#34;.&#34; + x[4:7]
+            )
+            dataframe = dataframe[ordem]
+            subitem_1 = pd.DataFrame(dataframe)
+        elif &#34;_&#34;.join(arq.split(&#34;_&#34;)[1:]).split(&#34;.&#34;, maxsplit=1)[0] == &#34;subitem_2&#34;:
+            dataframe[&#34;id_categoria_bd&#34;] = dataframe[&#34;id_categoria&#34;].apply(
+                lambda x: x[0] + &#34;.&#34; + x[1] + &#34;.&#34; + x[2:4] + &#34;.&#34; + x[4:7]
+            )
+            dataframe = dataframe[ordem]
+            subitem_2 = pd.DataFrame(dataframe)
+        elif arq.split(&#34;_&#34;)[-1].split(&#34;.&#34;)[0] == &#34;geral&#34;:
+            dataframe[&#34;id_categoria&#34;] = &#34;&#34;
+            dataframe[&#34;id_categoria_bd&#34;] = &#34;0.0.00.000&#34;
+            dataframe = dataframe[ordem]
+            geral = pd.DataFrame(dataframe)
+
+    # Add only dataframes defined in previous loop. Download failure leads to some dataframe not being defined
+    files_dict = {
+        &#34;grupo&#34;: grupo if &#34;grupo&#34; in locals() else &#34;&#34;,
+        &#34;subgrupo&#34;: subgrupo if &#34;subgrupo&#34; in locals() else &#34;&#34;,
+        &#34;item&#34;: item if &#34;item&#34; in locals() else &#34;&#34;,
+        &#34;subitem_1&#34;: subitem_1 if &#34;subitem_1&#34; in locals() else &#34;&#34;,
+        &#34;subitem_2&#34;: subitem_2 if &#34;subitem_2&#34; in locals() else &#34;&#34;,
+        &#34;geral&#34;: geral if &#34;geral&#34; in locals() else &#34;&#34;,
+    }
+
+    downloaded = [
+        k for k in files_dict.keys() if isinstance(files_dict[k], pd.DataFrame)
+    ]
+    dataframe = pd.concat([files_dict[k] for k in downloaded])
+    filepath = f&#34;/tmp/data/output/{indice}/categoria_rm.csv&#34;
+    dataframe.to_csv(filepath, index=False)
+
+    return filepath
+
+
+@task
+def clean_mes_municipio(indice: str):
+    &#34;&#34;&#34;
+    Clean mes_municipio
+    &#34;&#34;&#34;
+    if indice not in [&#34;inpc&#34;, &#34;ipca&#34;, &#34;ip15&#34;]:
+        raise ValueError(
+            &#34;indice argument must be one of the following: &#39;inpc&#39;, &#39;ipca&#39;, &#39;ip15&#39;&#34;
+        )
+    rename = {
+        &#34;Cód.&#34;: &#34;id_municipio&#34;,
+        &#34;Unnamed: 1&#34;: &#34;municipio&#34;,
+        &#34;Mês&#34;: &#34;ano&#34;,
+        &#34;Geral, grupo, subgrupo, item e subitem&#34;: &#34;categoria&#34;,
+        &#34;IPCA - Variação mensal (%)&#34;: &#34;variacao_mensal&#34;,
+        &#34;IPCA - Variação acumulada no ano (%)&#34;: &#34;variacao_anual&#34;,
+        &#34;IPCA - Variação acumulada em 12 meses (%)&#34;: &#34;variacao_doze_meses&#34;,
+        &#34;IPCA - Peso mensal (%)&#34;: &#34;peso_mensal&#34;,
+        &#34;INPC - Variação mensal (%)&#34;: &#34;variacao_mensal&#34;,
+        &#34;INPC - Variação acumulada no ano (%)&#34;: &#34;variacao_anual&#34;,
+        &#34;INPC - Variação acumulada em 12 meses (%)&#34;: &#34;variacao_doze_meses&#34;,
+        &#34;INPC - Peso mensal (%)&#34;: &#34;peso_mensal&#34;,
+        &#34;IPCA15 - Variação mensal (%)&#34;: &#34;variacao_mensal&#34;,
+        &#34;IPCA15 - Variação acumulada no ano (%)&#34;: &#34;variacao_anual&#34;,
+        &#34;IPCA15 - Variação acumulada em 12 meses (%)&#34;: &#34;variacao_doze_meses&#34;,
+        &#34;IPCA15 - Peso mensal (%)&#34;: &#34;peso_mensal&#34;,
+    }
+
+    ordem = [
+        &#34;ano&#34;,
+        &#34;mes&#34;,
+        &#34;id_municipio&#34;,
+        &#34;id_categoria&#34;,
+        &#34;id_categoria_bd&#34;,
+        &#34;categoria&#34;,
+        &#34;peso_mensal&#34;,
+        &#34;variacao_mensal&#34;,
+        &#34;variacao_anual&#34;,
+        &#34;variacao_doze_meses&#34;,
+    ]
+
+    n_mes = {
+        &#34;janeiro&#34;: &#34;1&#34;,
+        &#34;fevereiro&#34;: &#34;2&#34;,
+        &#34;março&#34;: &#34;3&#34;,
+        &#34;abril&#34;: &#34;4&#34;,
+        &#34;maio&#34;: &#34;5&#34;,
+        &#34;junho&#34;: &#34;6&#34;,
+        &#34;julho&#34;: &#34;7&#34;,
+        &#34;agosto&#34;: &#34;8&#34;,
+        &#34;setembro&#34;: &#34;9&#34;,
+        &#34;outubro&#34;: &#34;10&#34;,
+        &#34;novembro&#34;: &#34;11&#34;,
+        &#34;dezembro&#34;: &#34;12&#34;,
+    }
+    arquivos = [
+        arquivo
+        for arquivo in glob.iglob(&#34;/tmp/data/input/mun/*&#34;)
+        if arquivo.split(&#34;/&#34;)[-1].split(&#34;_&#34;)[0] == indice
+    ]
+
+    if len(arquivos) == 0:
+        raise FileNotFoundError(
+            errno.ENOENT,
+            os.strerror(errno.ENOENT),
+            &#34;/tmp/data/input/mun. Please, check if mun is the value of FOLDER arg in crawler task and if the files was downloaded&#34;,
+        )
+
+    for arq in arquivos:
+        dataframe = pd.read_csv(arq, skipfooter=14, skiprows=2, sep=&#34;;&#34;, dtype=&#34;str&#34;)
+        # renomear colunas
+        dataframe.rename(columns=rename, inplace=True)
+        # substituir &#34;...&#34; por vazio
+        dataframe = dataframe.replace(&#34;...&#34;, &#34;&#34;)
+        dataframe = dataframe.replace(&#34;-&#34;, &#34;&#34;)
+
+        # Normalizando float
+        dataframe = dataframe.replace(&#34;,&#34;, &#34;.&#34;, regex=True)
+
+        # Split coluna data e substituir mes
+        dataframe[[&#34;mes&#34;, &#34;ano&#34;]] = dataframe[&#34;ano&#34;].str.split(&#34; &#34;, 1, expand=True)
+        dataframe[&#34;mes&#34;] = dataframe[&#34;mes&#34;].map(n_mes)
+
+        # Split coluna categoria e add id_categoria_bd
+        if arq.split(&#34;_&#34;)[-1].split(&#34;.&#34;)[0] != &#34;geral&#34;:
+            dataframe[[&#34;id_categoria&#34;, &#34;categoria&#34;]] = dataframe[&#34;categoria&#34;].str.split(
+                &#34;.&#34;, 1, expand=True
+            )
+
+        if arq.split(&#34;_&#34;)[-1].split(&#34;.&#34;)[0] == &#34;grupo&#34;:
+            dataframe[&#34;id_categoria_bd&#34;] = dataframe[&#34;id_categoria&#34;].apply(
+                lambda x: x + &#34;.0.00.000&#34;
+            )
+            dataframe = dataframe[ordem]
+            grupo = pd.DataFrame(dataframe)
+        elif arq.split(&#34;_&#34;)[-1].split(&#34;.&#34;)[0] == &#34;subgrupo&#34;:
+            dataframe[&#34;id_categoria_bd&#34;] = dataframe[&#34;id_categoria&#34;].apply(
+                lambda x: x[0] + &#34;.&#34; + x[1] + &#34;.00.000&#34;
+            )
+            dataframe = dataframe[ordem]
+            subgrupo = pd.DataFrame(dataframe)
+        elif arq.split(&#34;_&#34;)[-1].split(&#34;.&#34;)[0] == &#34;item&#34;:
+            dataframe[&#34;id_categoria_bd&#34;] = dataframe[&#34;id_categoria&#34;].apply(
+                lambda x: x[0] + &#34;.&#34; + x[1] + &#34;.&#34; + x[2:4] + &#34;.000&#34;
+            )
+            dataframe = dataframe[ordem]
+            item = pd.DataFrame(dataframe)
+        elif &#34;_&#34;.join(arq.split(&#34;_&#34;)[1:]).split(&#34;.&#34;, maxsplit=1)[0] == &#34;subitem_1&#34;:
+            dataframe[&#34;id_categoria_bd&#34;] = dataframe[&#34;id_categoria&#34;].apply(
+                lambda x: x[0] + &#34;.&#34; + x[1] + &#34;.&#34; + x[2:4] + &#34;.&#34; + x[4:7]
+            )
+            dataframe = dataframe[ordem]
+            subitem_1 = pd.DataFrame(dataframe)
+        elif &#34;_&#34;.join(arq.split(&#34;_&#34;)[1:]).split(&#34;.&#34;, maxsplit=1)[0] == &#34;subitem_2&#34;:
+            dataframe[&#34;id_categoria_bd&#34;] = dataframe[&#34;id_categoria&#34;].apply(
+                lambda x: x[0] + &#34;.&#34; + x[1] + &#34;.&#34; + x[2:4] + &#34;.&#34; + x[4:7]
+            )
+            dataframe = dataframe[ordem]
+            subitem_2 = pd.DataFrame(dataframe)
+        elif arq.split(&#34;_&#34;)[-1].split(&#34;.&#34;)[0] == &#34;geral&#34;:
+            dataframe[&#34;id_categoria&#34;] = &#34;&#34;
+            dataframe[&#34;id_categoria_bd&#34;] = &#34;0.0.00.000&#34;
+            dataframe = dataframe[ordem]
+            geral = pd.DataFrame(dataframe)
+
+    # Add only dataframes defined in previous loop. Download failure leads to some dataframe not being defined
+    files_dict = {
+        &#34;grupo&#34;: grupo if &#34;grupo&#34; in locals() else &#34;&#34;,
+        &#34;subgrupo&#34;: subgrupo if &#34;subgrupo&#34; in locals() else &#34;&#34;,
+        &#34;item&#34;: item if &#34;item&#34; in locals() else &#34;&#34;,
+        &#34;subitem_1&#34;: subitem_1 if &#34;subitem_1&#34; in locals() else &#34;&#34;,
+        &#34;subitem_2&#34;: subitem_2 if &#34;subitem_2&#34; in locals() else &#34;&#34;,
+        &#34;geral&#34;: geral if &#34;geral&#34; in locals() else &#34;&#34;,
+    }
+
+    downloaded = [
+        k for k in files_dict.keys() if isinstance(files_dict[k], pd.DataFrame)
+    ]
+    dataframe = pd.concat([files_dict[k] for k in downloaded])
+    filepath = f&#34;/tmp/data/output/{indice}/categoria_municipio.csv&#34;
+    dataframe.to_csv(filepath, index=False)
+
+    return filepath
+
+
+@task
+def clean_mes_geral(indice: str):
+    &#34;&#34;&#34;
+    clean_mes_geral
+    &#34;&#34;&#34;
+    if indice not in [&#34;inpc&#34;, &#34;ipca&#34;, &#34;ip15&#34;]:
+        raise ValueError(
+            &#34;indice argument must be one of the following: &#39;inpc&#39;, &#39;ipca&#39;, &#39;ip15&#39;&#34;
+        )
+    rename = {
+        &#34;IPCA - Número-índice (base: dezembro de 1993 = 100) (Número-índice)&#34;: &#34;indice&#34;,
+        &#34;IPCA - Variação mensal (%)&#34;: &#34;variacao_mensal&#34;,
+        &#34;IPCA - Variação acumulada em 3 meses (%)&#34;: &#34;variacao_trimestral&#34;,
+        &#34;IPCA - Variação acumulada em 6 meses (%)&#34;: &#34;variacao_semestral&#34;,
+        &#34;IPCA - Variação acumulada no ano (%)&#34;: &#34;variacao_anual&#34;,
+        &#34;IPCA - Variação acumulada em 12 meses (%)&#34;: &#34;variacao_doze_meses&#34;,
+        &#34;IPCA15 - Número-índice (base: dezembro de 1993 = 100) (Número-índice)&#34;: &#34;indice&#34;,
+        &#34;IPCA15 - Variação mensal (%)&#34;: &#34;variacao_mensal&#34;,
+        &#34;IPCA15 - Variação acumulada em 3 meses (%)&#34;: &#34;variacao_trimestral&#34;,
+        &#34;IPCA15 - Variação acumulada em 6 meses (%)&#34;: &#34;variacao_semestral&#34;,
+        &#34;IPCA15 - Variação acumulada no ano (%)&#34;: &#34;variacao_anual&#34;,
+        &#34;IPCA15 - Variação acumulada em 12 meses (%)&#34;: &#34;variacao_doze_meses&#34;,
+        &#34;INPC - Número-índice (base: dezembro de 1993 = 100) (Número-índice)&#34;: &#34;indice&#34;,
+        &#34;INPC - Variação mensal (%)&#34;: &#34;variacao_mensal&#34;,
+        &#34;INPC - Variação acumulada em 3 meses (%)&#34;: &#34;variacao_trimestral&#34;,
+        &#34;INPC - Variação acumulada em 6 meses (%)&#34;: &#34;variacao_semestral&#34;,
+        &#34;INPC - Variação acumulada no ano (%)&#34;: &#34;variacao_anual&#34;,
+        &#34;INPC - Variação acumulada em 12 meses (%)&#34;: &#34;variacao_doze_meses&#34;,
+    }
+
+    ordem = [
+        &#34;ano&#34;,
+        &#34;mes&#34;,
+        &#34;indice&#34;,
+        &#34;variacao_mensal&#34;,
+        &#34;variacao_trimestral&#34;,
+        &#34;variacao_semestral&#34;,
+        &#34;variacao_anual&#34;,
+        &#34;variacao_doze_meses&#34;,
+    ]
+
+    n_mes = {
+        &#34;janeiro&#34;: &#34;1&#34;,
+        &#34;fevereiro&#34;: &#34;2&#34;,
+        &#34;março&#34;: &#34;3&#34;,
+        &#34;abril&#34;: &#34;4&#34;,
+        &#34;maio&#34;: &#34;5&#34;,
+        &#34;junho&#34;: &#34;6&#34;,
+        &#34;julho&#34;: &#34;7&#34;,
+        &#34;agosto&#34;: &#34;8&#34;,
+        &#34;setembro&#34;: &#34;9&#34;,
+        &#34;outubro&#34;: &#34;10&#34;,
+        &#34;novembro&#34;: &#34;11&#34;,
+        &#34;dezembro&#34;: &#34;12&#34;,
+    }
+    arquivos = [
+        arquivo
+        for arquivo in glob.iglob(&#34;/tmp/data/input/mes/*&#34;)
+        if arquivo.split(&#34;/&#34;)[-1].split(&#34;_&#34;)[0] == indice
+    ]
+
+    if len(arquivos) == 0:
+        raise FileNotFoundError(
+            errno.ENOENT,
+            os.strerror(errno.ENOENT),
+            &#34;/tmp/data/input/mes. Please, check if mes is the value of FOLDER arg in crawler task and if the files was downloaded&#34;,
+        )
+
+    for arq in arquivos:
+        if indice == &#34;ip15&#34;:
+            dataframe = pd.read_csv(arq, skiprows=2, skipfooter=11, sep=&#34;;&#34;)
+        else:
+            dataframe = pd.read_csv(arq, skiprows=2, skipfooter=13, sep=&#34;;&#34;)
+
+        dataframe[&#34;mes&#34;], dataframe[&#34;ano&#34;] = dataframe[&#34;Mês&#34;].str.split(&#34; &#34;, 1).str
+        dataframe[&#34;mes&#34;] = dataframe[&#34;mes&#34;].map(n_mes)
+
+        # renomear colunas
+        dataframe.rename(columns=rename, inplace=True)
+        dataframe = dataframe.replace(&#34;...&#34;, &#34;&#34;)
+        dataframe = dataframe.replace(&#34;-&#34;, &#34;&#34;)
+
+        # Normalizando float
+        dataframe = dataframe.replace(&#34;,&#34;, &#34;.&#34;, regex=True)
+
+        # Renomeando colunas e ordenando
+        dataframe = dataframe[ordem]
+
+    filepath = f&#34;/tmp/data/output/{indice}/mes_brasil.csv&#34;
+    dataframe.to_csv(filepath, index=False)
+    log(os.system(&#34;tree /tmp/data&#34;))
+
+    return filepath</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="pipelines.utils.crawler_ibge_inflacao.tasks.clean_mes_brasil"><code class="name flex">
+<span>def <span class="ident">clean_mes_brasil</span></span>(<span>indice: str) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Clean the data from the mes_brasil dataset.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@task
+def clean_mes_brasil(indice: str) -&gt; None:
+    &#34;&#34;&#34;
+    Clean the data from the mes_brasil dataset.
+    &#34;&#34;&#34;
+
+    if indice not in [&#34;inpc&#34;, &#34;ipca&#34;, &#34;ip15&#34;]:
+        raise ValueError(
+            &#34;indice argument must be one of the following: &#39;inpc&#39;, &#39;ipca&#39;, &#39;ip15&#39;&#34;
+        )
+    rename = {
+        &#34;Mês&#34;: &#34;ano&#34;,
+        &#34;Geral, grupo, subgrupo, item e subitem&#34;: &#34;categoria&#34;,
+        &#34;IPCA - Variação mensal (%)&#34;: &#34;variacao_mensal&#34;,
+        &#34;IPCA - Variação acumulada no ano (%)&#34;: &#34;variacao_anual&#34;,
+        &#34;IPCA - Variação acumulada em 12 meses (%)&#34;: &#34;variacao_doze_meses&#34;,
+        &#34;IPCA - Peso mensal (%)&#34;: &#34;peso_mensal&#34;,
+        &#34;INPC - Variação mensal (%)&#34;: &#34;variacao_mensal&#34;,
+        &#34;INPC - Variação acumulada no ano (%)&#34;: &#34;variacao_anual&#34;,
+        &#34;INPC - Variação acumulada em 12 meses (%)&#34;: &#34;variacao_doze_meses&#34;,
+        &#34;INPC - Peso mensal (%)&#34;: &#34;peso_mensal&#34;,
+        &#34;IPCA15 - Variação mensal (%)&#34;: &#34;variacao_mensal&#34;,
+        &#34;IPCA15 - Variação acumulada no ano (%)&#34;: &#34;variacao_anual&#34;,
+        &#34;IPCA15 - Variação acumulada em 12 meses (%)&#34;: &#34;variacao_doze_meses&#34;,
+        &#34;IPCA15 - Peso mensal (%)&#34;: &#34;peso_mensal&#34;,
+    }
+
+    ordem = [
+        &#34;ano&#34;,
+        &#34;mes&#34;,
+        &#34;id_categoria&#34;,
+        &#34;id_categoria_bd&#34;,
+        &#34;categoria&#34;,
+        &#34;peso_mensal&#34;,
+        &#34;variacao_mensal&#34;,
+        &#34;variacao_anual&#34;,
+        &#34;variacao_doze_meses&#34;,
+    ]
+
+    n_mes = {
+        &#34;janeiro&#34;: &#34;1&#34;,
+        &#34;fevereiro&#34;: &#34;2&#34;,
+        &#34;março&#34;: &#34;3&#34;,
+        &#34;abril&#34;: &#34;4&#34;,
+        &#34;maio&#34;: &#34;5&#34;,
+        &#34;junho&#34;: &#34;6&#34;,
+        &#34;julho&#34;: &#34;7&#34;,
+        &#34;agosto&#34;: &#34;8&#34;,
+        &#34;setembro&#34;: &#34;9&#34;,
+        &#34;outubro&#34;: &#34;10&#34;,
+        &#34;novembro&#34;: &#34;11&#34;,
+        &#34;dezembro&#34;: &#34;12&#34;,
+    }
+    arquivos = [
+        arquivo
+        for arquivo in glob.iglob(&#34;/tmp/data/input/br/*&#34;)
+        if arquivo.split(&#34;/&#34;)[-1].split(&#34;_&#34;)[0] == indice
+    ]
+
+    if len(arquivos) == 0:
+        raise FileNotFoundError(
+            errno.ENOENT,
+            os.strerror(errno.ENOENT),
+            &#34;/tmp/data/input/br. Please, check if br is the value of FOLDER arg in crawler task and if the files was downloaded and if the files was downloaded&#34;,
+        )
+    for arq in arquivos:
+        dataframe = pd.read_csv(arq, skipfooter=14, skiprows=2, sep=&#34;;&#34;, dtype=&#34;str&#34;)
+        # renomear colunas
+        dataframe.rename(columns=rename, inplace=True)
+        # substituir &#34;...&#34; por vazio
+        dataframe = dataframe.replace(&#34;...&#34;, &#34;&#34;)
+        dataframe = dataframe.replace(&#34;-&#34;, &#34;&#34;)
+
+        # Normalizando float
+        dataframe = dataframe.replace(&#34;,&#34;, &#34;.&#34;, regex=True)
+
+        # Split coluna data e substituir mes
+        dataframe[[&#34;mes&#34;, &#34;ano&#34;]] = dataframe[&#34;ano&#34;].str.split(&#34; &#34;, 1, expand=True)
+        dataframe[&#34;mes&#34;] = dataframe[&#34;mes&#34;].map(n_mes)
+
+        # Split coluna categoria e add id_categoria_bd
+        if arq.split(&#34;_&#34;)[-1].split(&#34;.&#34;)[0] != &#34;geral&#34;:
+            dataframe[[&#34;id_categoria&#34;, &#34;categoria&#34;]] = dataframe[&#34;categoria&#34;].str.split(
+                &#34;.&#34;, 1, expand=True
+            )
+
+        if arq.split(&#34;_&#34;)[-1].split(&#34;.&#34;)[0] == &#34;grupo&#34;:
+            dataframe[&#34;id_categoria_bd&#34;] = dataframe[&#34;id_categoria&#34;].apply(
+                lambda x: x + &#34;.0.00.000&#34;
+            )
+            dataframe = dataframe[ordem]
+            grupo = pd.DataFrame(dataframe)
+        elif arq.split(&#34;_&#34;)[-1].split(&#34;.&#34;)[0] == &#34;subgrupo&#34;:
+            dataframe[&#34;id_categoria_bd&#34;] = dataframe[&#34;id_categoria&#34;].apply(
+                lambda x: f&#34;{x[0]}.{x[1]}.00.000&#34;
+            )
+
+            dataframe = dataframe[ordem]
+            subgrupo = pd.DataFrame(dataframe)
+        elif arq.split(&#34;_&#34;)[-1].split(&#34;.&#34;)[0] == &#34;item&#34;:
+            dataframe[&#34;id_categoria_bd&#34;] = dataframe[&#34;id_categoria&#34;].apply(
+                lambda x: f&#34;{x[0]}.{x[1]}.{x[2:4]}.000&#34;
+            )
+
+            dataframe = dataframe[ordem]
+            item = pd.DataFrame(dataframe)
+        elif arq.split(&#34;_&#34;)[-1].split(&#34;.&#34;)[0] == &#34;subitem&#34;:
+            dataframe[&#34;id_categoria_bd&#34;] = dataframe[&#34;id_categoria&#34;].apply(
+                lambda x: f&#34;{x[0]}.{x[1]}.{x[2:4]}.{x[4:7]}&#34;
+            )
+
+            dataframe = dataframe[ordem]
+            subitem = pd.DataFrame(dataframe)
+        elif arq.split(&#34;_&#34;)[-1].split(&#34;.&#34;)[0] == &#34;geral&#34;:
+            dataframe[&#34;id_categoria&#34;] = &#34;&#34;
+            dataframe[&#34;id_categoria_bd&#34;] = &#34;0.0.00.000&#34;
+            dataframe = dataframe[ordem]
+            geral = pd.DataFrame(dataframe)
+
+    # pylint: disable=E0602
+    # Add only dataframes defined in previous loop. Download failure leads to some dataframe not being defined
+    files_dict = {
+        &#34;grupo&#34;: grupo if &#34;grupo&#34; in locals() else &#34;&#34;,
+        &#34;subgrupo&#34;: subgrupo if &#34;subgrupo&#34; in locals() else &#34;&#34;,
+        &#34;item&#34;: item if &#34;item&#34; in locals() else &#34;&#34;,
+        &#34;subitem&#34;: subitem if &#34;subitem&#34; in locals() else &#34;&#34;,
+        &#34;geral&#34;: geral if &#34;geral&#34; in locals() else &#34;&#34;,
+    }
+
+    downloaded = [
+        k for k in files_dict.keys() if isinstance(files_dict[k], pd.DataFrame)
+    ]
+    dataframe = pd.concat([files_dict[k] for k in downloaded])
+    filepath = f&#34;/tmp/data/output/{indice}/categoria_brasil.csv&#34;
+    dataframe.to_csv(filepath, index=False)
+    log(os.system(&#34;tree /tmp/data&#34;))
+
+    return filepath</code></pre>
+</details>
+</dd>
+<dt id="pipelines.utils.crawler_ibge_inflacao.tasks.clean_mes_geral"><code class="name flex">
+<span>def <span class="ident">clean_mes_geral</span></span>(<span>indice: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>clean_mes_geral</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@task
+def clean_mes_geral(indice: str):
+    &#34;&#34;&#34;
+    clean_mes_geral
+    &#34;&#34;&#34;
+    if indice not in [&#34;inpc&#34;, &#34;ipca&#34;, &#34;ip15&#34;]:
+        raise ValueError(
+            &#34;indice argument must be one of the following: &#39;inpc&#39;, &#39;ipca&#39;, &#39;ip15&#39;&#34;
+        )
+    rename = {
+        &#34;IPCA - Número-índice (base: dezembro de 1993 = 100) (Número-índice)&#34;: &#34;indice&#34;,
+        &#34;IPCA - Variação mensal (%)&#34;: &#34;variacao_mensal&#34;,
+        &#34;IPCA - Variação acumulada em 3 meses (%)&#34;: &#34;variacao_trimestral&#34;,
+        &#34;IPCA - Variação acumulada em 6 meses (%)&#34;: &#34;variacao_semestral&#34;,
+        &#34;IPCA - Variação acumulada no ano (%)&#34;: &#34;variacao_anual&#34;,
+        &#34;IPCA - Variação acumulada em 12 meses (%)&#34;: &#34;variacao_doze_meses&#34;,
+        &#34;IPCA15 - Número-índice (base: dezembro de 1993 = 100) (Número-índice)&#34;: &#34;indice&#34;,
+        &#34;IPCA15 - Variação mensal (%)&#34;: &#34;variacao_mensal&#34;,
+        &#34;IPCA15 - Variação acumulada em 3 meses (%)&#34;: &#34;variacao_trimestral&#34;,
+        &#34;IPCA15 - Variação acumulada em 6 meses (%)&#34;: &#34;variacao_semestral&#34;,
+        &#34;IPCA15 - Variação acumulada no ano (%)&#34;: &#34;variacao_anual&#34;,
+        &#34;IPCA15 - Variação acumulada em 12 meses (%)&#34;: &#34;variacao_doze_meses&#34;,
+        &#34;INPC - Número-índice (base: dezembro de 1993 = 100) (Número-índice)&#34;: &#34;indice&#34;,
+        &#34;INPC - Variação mensal (%)&#34;: &#34;variacao_mensal&#34;,
+        &#34;INPC - Variação acumulada em 3 meses (%)&#34;: &#34;variacao_trimestral&#34;,
+        &#34;INPC - Variação acumulada em 6 meses (%)&#34;: &#34;variacao_semestral&#34;,
+        &#34;INPC - Variação acumulada no ano (%)&#34;: &#34;variacao_anual&#34;,
+        &#34;INPC - Variação acumulada em 12 meses (%)&#34;: &#34;variacao_doze_meses&#34;,
+    }
+
+    ordem = [
+        &#34;ano&#34;,
+        &#34;mes&#34;,
+        &#34;indice&#34;,
+        &#34;variacao_mensal&#34;,
+        &#34;variacao_trimestral&#34;,
+        &#34;variacao_semestral&#34;,
+        &#34;variacao_anual&#34;,
+        &#34;variacao_doze_meses&#34;,
+    ]
+
+    n_mes = {
+        &#34;janeiro&#34;: &#34;1&#34;,
+        &#34;fevereiro&#34;: &#34;2&#34;,
+        &#34;março&#34;: &#34;3&#34;,
+        &#34;abril&#34;: &#34;4&#34;,
+        &#34;maio&#34;: &#34;5&#34;,
+        &#34;junho&#34;: &#34;6&#34;,
+        &#34;julho&#34;: &#34;7&#34;,
+        &#34;agosto&#34;: &#34;8&#34;,
+        &#34;setembro&#34;: &#34;9&#34;,
+        &#34;outubro&#34;: &#34;10&#34;,
+        &#34;novembro&#34;: &#34;11&#34;,
+        &#34;dezembro&#34;: &#34;12&#34;,
+    }
+    arquivos = [
+        arquivo
+        for arquivo in glob.iglob(&#34;/tmp/data/input/mes/*&#34;)
+        if arquivo.split(&#34;/&#34;)[-1].split(&#34;_&#34;)[0] == indice
+    ]
+
+    if len(arquivos) == 0:
+        raise FileNotFoundError(
+            errno.ENOENT,
+            os.strerror(errno.ENOENT),
+            &#34;/tmp/data/input/mes. Please, check if mes is the value of FOLDER arg in crawler task and if the files was downloaded&#34;,
+        )
+
+    for arq in arquivos:
+        if indice == &#34;ip15&#34;:
+            dataframe = pd.read_csv(arq, skiprows=2, skipfooter=11, sep=&#34;;&#34;)
+        else:
+            dataframe = pd.read_csv(arq, skiprows=2, skipfooter=13, sep=&#34;;&#34;)
+
+        dataframe[&#34;mes&#34;], dataframe[&#34;ano&#34;] = dataframe[&#34;Mês&#34;].str.split(&#34; &#34;, 1).str
+        dataframe[&#34;mes&#34;] = dataframe[&#34;mes&#34;].map(n_mes)
+
+        # renomear colunas
+        dataframe.rename(columns=rename, inplace=True)
+        dataframe = dataframe.replace(&#34;...&#34;, &#34;&#34;)
+        dataframe = dataframe.replace(&#34;-&#34;, &#34;&#34;)
+
+        # Normalizando float
+        dataframe = dataframe.replace(&#34;,&#34;, &#34;.&#34;, regex=True)
+
+        # Renomeando colunas e ordenando
+        dataframe = dataframe[ordem]
+
+    filepath = f&#34;/tmp/data/output/{indice}/mes_brasil.csv&#34;
+    dataframe.to_csv(filepath, index=False)
+    log(os.system(&#34;tree /tmp/data&#34;))
+
+    return filepath</code></pre>
+</details>
+</dd>
+<dt id="pipelines.utils.crawler_ibge_inflacao.tasks.clean_mes_municipio"><code class="name flex">
+<span>def <span class="ident">clean_mes_municipio</span></span>(<span>indice: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Clean mes_municipio</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@task
+def clean_mes_municipio(indice: str):
+    &#34;&#34;&#34;
+    Clean mes_municipio
+    &#34;&#34;&#34;
+    if indice not in [&#34;inpc&#34;, &#34;ipca&#34;, &#34;ip15&#34;]:
+        raise ValueError(
+            &#34;indice argument must be one of the following: &#39;inpc&#39;, &#39;ipca&#39;, &#39;ip15&#39;&#34;
+        )
+    rename = {
+        &#34;Cód.&#34;: &#34;id_municipio&#34;,
+        &#34;Unnamed: 1&#34;: &#34;municipio&#34;,
+        &#34;Mês&#34;: &#34;ano&#34;,
+        &#34;Geral, grupo, subgrupo, item e subitem&#34;: &#34;categoria&#34;,
+        &#34;IPCA - Variação mensal (%)&#34;: &#34;variacao_mensal&#34;,
+        &#34;IPCA - Variação acumulada no ano (%)&#34;: &#34;variacao_anual&#34;,
+        &#34;IPCA - Variação acumulada em 12 meses (%)&#34;: &#34;variacao_doze_meses&#34;,
+        &#34;IPCA - Peso mensal (%)&#34;: &#34;peso_mensal&#34;,
+        &#34;INPC - Variação mensal (%)&#34;: &#34;variacao_mensal&#34;,
+        &#34;INPC - Variação acumulada no ano (%)&#34;: &#34;variacao_anual&#34;,
+        &#34;INPC - Variação acumulada em 12 meses (%)&#34;: &#34;variacao_doze_meses&#34;,
+        &#34;INPC - Peso mensal (%)&#34;: &#34;peso_mensal&#34;,
+        &#34;IPCA15 - Variação mensal (%)&#34;: &#34;variacao_mensal&#34;,
+        &#34;IPCA15 - Variação acumulada no ano (%)&#34;: &#34;variacao_anual&#34;,
+        &#34;IPCA15 - Variação acumulada em 12 meses (%)&#34;: &#34;variacao_doze_meses&#34;,
+        &#34;IPCA15 - Peso mensal (%)&#34;: &#34;peso_mensal&#34;,
+    }
+
+    ordem = [
+        &#34;ano&#34;,
+        &#34;mes&#34;,
+        &#34;id_municipio&#34;,
+        &#34;id_categoria&#34;,
+        &#34;id_categoria_bd&#34;,
+        &#34;categoria&#34;,
+        &#34;peso_mensal&#34;,
+        &#34;variacao_mensal&#34;,
+        &#34;variacao_anual&#34;,
+        &#34;variacao_doze_meses&#34;,
+    ]
+
+    n_mes = {
+        &#34;janeiro&#34;: &#34;1&#34;,
+        &#34;fevereiro&#34;: &#34;2&#34;,
+        &#34;março&#34;: &#34;3&#34;,
+        &#34;abril&#34;: &#34;4&#34;,
+        &#34;maio&#34;: &#34;5&#34;,
+        &#34;junho&#34;: &#34;6&#34;,
+        &#34;julho&#34;: &#34;7&#34;,
+        &#34;agosto&#34;: &#34;8&#34;,
+        &#34;setembro&#34;: &#34;9&#34;,
+        &#34;outubro&#34;: &#34;10&#34;,
+        &#34;novembro&#34;: &#34;11&#34;,
+        &#34;dezembro&#34;: &#34;12&#34;,
+    }
+    arquivos = [
+        arquivo
+        for arquivo in glob.iglob(&#34;/tmp/data/input/mun/*&#34;)
+        if arquivo.split(&#34;/&#34;)[-1].split(&#34;_&#34;)[0] == indice
+    ]
+
+    if len(arquivos) == 0:
+        raise FileNotFoundError(
+            errno.ENOENT,
+            os.strerror(errno.ENOENT),
+            &#34;/tmp/data/input/mun. Please, check if mun is the value of FOLDER arg in crawler task and if the files was downloaded&#34;,
+        )
+
+    for arq in arquivos:
+        dataframe = pd.read_csv(arq, skipfooter=14, skiprows=2, sep=&#34;;&#34;, dtype=&#34;str&#34;)
+        # renomear colunas
+        dataframe.rename(columns=rename, inplace=True)
+        # substituir &#34;...&#34; por vazio
+        dataframe = dataframe.replace(&#34;...&#34;, &#34;&#34;)
+        dataframe = dataframe.replace(&#34;-&#34;, &#34;&#34;)
+
+        # Normalizando float
+        dataframe = dataframe.replace(&#34;,&#34;, &#34;.&#34;, regex=True)
+
+        # Split coluna data e substituir mes
+        dataframe[[&#34;mes&#34;, &#34;ano&#34;]] = dataframe[&#34;ano&#34;].str.split(&#34; &#34;, 1, expand=True)
+        dataframe[&#34;mes&#34;] = dataframe[&#34;mes&#34;].map(n_mes)
+
+        # Split coluna categoria e add id_categoria_bd
+        if arq.split(&#34;_&#34;)[-1].split(&#34;.&#34;)[0] != &#34;geral&#34;:
+            dataframe[[&#34;id_categoria&#34;, &#34;categoria&#34;]] = dataframe[&#34;categoria&#34;].str.split(
+                &#34;.&#34;, 1, expand=True
+            )
+
+        if arq.split(&#34;_&#34;)[-1].split(&#34;.&#34;)[0] == &#34;grupo&#34;:
+            dataframe[&#34;id_categoria_bd&#34;] = dataframe[&#34;id_categoria&#34;].apply(
+                lambda x: x + &#34;.0.00.000&#34;
+            )
+            dataframe = dataframe[ordem]
+            grupo = pd.DataFrame(dataframe)
+        elif arq.split(&#34;_&#34;)[-1].split(&#34;.&#34;)[0] == &#34;subgrupo&#34;:
+            dataframe[&#34;id_categoria_bd&#34;] = dataframe[&#34;id_categoria&#34;].apply(
+                lambda x: x[0] + &#34;.&#34; + x[1] + &#34;.00.000&#34;
+            )
+            dataframe = dataframe[ordem]
+            subgrupo = pd.DataFrame(dataframe)
+        elif arq.split(&#34;_&#34;)[-1].split(&#34;.&#34;)[0] == &#34;item&#34;:
+            dataframe[&#34;id_categoria_bd&#34;] = dataframe[&#34;id_categoria&#34;].apply(
+                lambda x: x[0] + &#34;.&#34; + x[1] + &#34;.&#34; + x[2:4] + &#34;.000&#34;
+            )
+            dataframe = dataframe[ordem]
+            item = pd.DataFrame(dataframe)
+        elif &#34;_&#34;.join(arq.split(&#34;_&#34;)[1:]).split(&#34;.&#34;, maxsplit=1)[0] == &#34;subitem_1&#34;:
+            dataframe[&#34;id_categoria_bd&#34;] = dataframe[&#34;id_categoria&#34;].apply(
+                lambda x: x[0] + &#34;.&#34; + x[1] + &#34;.&#34; + x[2:4] + &#34;.&#34; + x[4:7]
+            )
+            dataframe = dataframe[ordem]
+            subitem_1 = pd.DataFrame(dataframe)
+        elif &#34;_&#34;.join(arq.split(&#34;_&#34;)[1:]).split(&#34;.&#34;, maxsplit=1)[0] == &#34;subitem_2&#34;:
+            dataframe[&#34;id_categoria_bd&#34;] = dataframe[&#34;id_categoria&#34;].apply(
+                lambda x: x[0] + &#34;.&#34; + x[1] + &#34;.&#34; + x[2:4] + &#34;.&#34; + x[4:7]
+            )
+            dataframe = dataframe[ordem]
+            subitem_2 = pd.DataFrame(dataframe)
+        elif arq.split(&#34;_&#34;)[-1].split(&#34;.&#34;)[0] == &#34;geral&#34;:
+            dataframe[&#34;id_categoria&#34;] = &#34;&#34;
+            dataframe[&#34;id_categoria_bd&#34;] = &#34;0.0.00.000&#34;
+            dataframe = dataframe[ordem]
+            geral = pd.DataFrame(dataframe)
+
+    # Add only dataframes defined in previous loop. Download failure leads to some dataframe not being defined
+    files_dict = {
+        &#34;grupo&#34;: grupo if &#34;grupo&#34; in locals() else &#34;&#34;,
+        &#34;subgrupo&#34;: subgrupo if &#34;subgrupo&#34; in locals() else &#34;&#34;,
+        &#34;item&#34;: item if &#34;item&#34; in locals() else &#34;&#34;,
+        &#34;subitem_1&#34;: subitem_1 if &#34;subitem_1&#34; in locals() else &#34;&#34;,
+        &#34;subitem_2&#34;: subitem_2 if &#34;subitem_2&#34; in locals() else &#34;&#34;,
+        &#34;geral&#34;: geral if &#34;geral&#34; in locals() else &#34;&#34;,
+    }
+
+    downloaded = [
+        k for k in files_dict.keys() if isinstance(files_dict[k], pd.DataFrame)
+    ]
+    dataframe = pd.concat([files_dict[k] for k in downloaded])
+    filepath = f&#34;/tmp/data/output/{indice}/categoria_municipio.csv&#34;
+    dataframe.to_csv(filepath, index=False)
+
+    return filepath</code></pre>
+</details>
+</dd>
+<dt id="pipelines.utils.crawler_ibge_inflacao.tasks.clean_mes_rm"><code class="name flex">
+<span>def <span class="ident">clean_mes_rm</span></span>(<span>indice: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Clean mes_rm</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@task
+def clean_mes_rm(indice: str):
+    &#34;&#34;&#34;
+    Clean mes_rm
+    &#34;&#34;&#34;
+    if indice not in [&#34;inpc&#34;, &#34;ipca&#34;, &#34;ip15&#34;]:
+        raise ValueError(
+            &#34;indice argument must be one of the following: &#39;inpc&#39;, &#39;ipca&#39;, &#39;ip15&#39;&#34;
+        )
+    rename = {
+        &#34;Cód.&#34;: &#34;id_regiao_metropolitana&#34;,
+        &#34;Unnamed: 1&#34;: &#34;rm&#34;,
+        &#34;Mês&#34;: &#34;ano&#34;,
+        &#34;Geral, grupo, subgrupo, item e subitem&#34;: &#34;categoria&#34;,
+        &#34;IPCA - Variação mensal (%)&#34;: &#34;variacao_mensal&#34;,
+        &#34;IPCA - Variação acumulada no ano (%)&#34;: &#34;variacao_anual&#34;,
+        &#34;IPCA - Variação acumulada em 12 meses (%)&#34;: &#34;variacao_doze_meses&#34;,
+        &#34;IPCA - Peso mensal (%)&#34;: &#34;peso_mensal&#34;,
+        &#34;INPC - Variação mensal (%)&#34;: &#34;variacao_mensal&#34;,
+        &#34;INPC - Variação acumulada no ano (%)&#34;: &#34;variacao_anual&#34;,
+        &#34;INPC - Variação acumulada em 12 meses (%)&#34;: &#34;variacao_doze_meses&#34;,
+        &#34;INPC - Peso mensal (%)&#34;: &#34;peso_mensal&#34;,
+        &#34;IPCA15 - Variação mensal (%)&#34;: &#34;variacao_mensal&#34;,
+        &#34;IPCA15 - Variação acumulada no ano (%)&#34;: &#34;variacao_anual&#34;,
+        &#34;IPCA15 - Variação acumulada em 12 meses (%)&#34;: &#34;variacao_doze_meses&#34;,
+        &#34;IPCA15 - Peso mensal (%)&#34;: &#34;peso_mensal&#34;,
+    }
+
+    ordem = [
+        &#34;ano&#34;,
+        &#34;mes&#34;,
+        &#34;id_regiao_metropolitana&#34;,
+        &#34;id_categoria&#34;,
+        &#34;id_categoria_bd&#34;,
+        &#34;categoria&#34;,
+        &#34;peso_mensal&#34;,
+        &#34;variacao_mensal&#34;,
+        &#34;variacao_anual&#34;,
+        &#34;variacao_doze_meses&#34;,
+    ]
+
+    n_mes = {
+        &#34;janeiro&#34;: &#34;1&#34;,
+        &#34;fevereiro&#34;: &#34;2&#34;,
+        &#34;março&#34;: &#34;3&#34;,
+        &#34;abril&#34;: &#34;4&#34;,
+        &#34;maio&#34;: &#34;5&#34;,
+        &#34;junho&#34;: &#34;6&#34;,
+        &#34;julho&#34;: &#34;7&#34;,
+        &#34;agosto&#34;: &#34;8&#34;,
+        &#34;setembro&#34;: &#34;9&#34;,
+        &#34;outubro&#34;: &#34;10&#34;,
+        &#34;novembro&#34;: &#34;11&#34;,
+        &#34;dezembro&#34;: &#34;12&#34;,
+    }
+    arquivos = [
+        arquivo
+        for arquivo in glob.iglob(&#34;/tmp/data/input/rm/*&#34;)
+        if arquivo.split(&#34;/&#34;)[-1].split(&#34;_&#34;)[0] == indice
+    ]
+
+    if len(arquivos) == 0:
+        raise FileNotFoundError(
+            errno.ENOENT,
+            os.strerror(errno.ENOENT),
+            &#34;/tmp/data/input/rm. Please, check if rm is the value of FOLDER arg in crawler task and if the files was downloaded&#34;,
+        )
+
+    for arq in arquivos:
+        log(arq)
+        dataframe = pd.read_csv(arq, skipfooter=14, skiprows=2, sep=&#34;;&#34;, dtype=&#34;str&#34;)
+        # renomear colunas
+        dataframe.rename(columns=rename, inplace=True)
+        # substituir &#34;...&#34; por vazio
+        dataframe = dataframe.replace(&#34;...&#34;, &#34;&#34;)
+        dataframe = dataframe.replace(&#34;-&#34;, &#34;&#34;)
+
+        # Normalizando float
+        dataframe = dataframe.replace(&#34;,&#34;, &#34;.&#34;, regex=True)
+
+        # Split coluna data e substituir mes
+        dataframe[[&#34;mes&#34;, &#34;ano&#34;]] = dataframe[&#34;ano&#34;].str.split(&#34; &#34;, 1, expand=True)
+        dataframe[&#34;mes&#34;] = dataframe[&#34;mes&#34;].map(n_mes)
+
+        # Split coluna categoria e add id_categoria_bd
+        if arq.split(&#34;_&#34;)[-1].split(&#34;.&#34;)[0] != &#34;geral&#34;:
+            dataframe[[&#34;id_categoria&#34;, &#34;categoria&#34;]] = dataframe[&#34;categoria&#34;].str.split(
+                &#34;.&#34;, 1, expand=True
+            )
+
+        if arq.split(&#34;_&#34;)[-1].split(&#34;.&#34;)[0] == &#34;grupo&#34;:
+            dataframe[&#34;id_categoria_bd&#34;] = dataframe[&#34;id_categoria&#34;].apply(
+                lambda x: x + &#34;.0.00.000&#34;
+            )
+            dataframe = dataframe[ordem]
+            grupo = pd.DataFrame(dataframe)
+        elif arq.split(&#34;_&#34;)[-1].split(&#34;.&#34;)[0] == &#34;subgrupo&#34;:
+            dataframe[&#34;id_categoria_bd&#34;] = dataframe[&#34;id_categoria&#34;].apply(
+                lambda x: x[0] + &#34;.&#34; + x[1] + &#34;.00.000&#34;
+            )
+            dataframe = dataframe[ordem]
+            subgrupo = pd.DataFrame(dataframe)
+        elif arq.split(&#34;_&#34;)[-1].split(&#34;.&#34;)[0] == &#34;item&#34;:
+            dataframe[&#34;id_categoria_bd&#34;] = dataframe[&#34;id_categoria&#34;].apply(
+                lambda x: x[0] + &#34;.&#34; + x[1] + &#34;.&#34; + x[2:4] + &#34;.000&#34;
+            )
+            dataframe = dataframe[ordem]
+            item = pd.DataFrame(dataframe)
+        elif &#34;_&#34;.join(arq.split(&#34;_&#34;)[1:]).split(&#34;.&#34;, maxsplit=1)[0] == &#34;subitem_1&#34;:
+            dataframe[&#34;id_categoria_bd&#34;] = dataframe[&#34;id_categoria&#34;].apply(
+                lambda x: x[0] + &#34;.&#34; + x[1] + &#34;.&#34; + x[2:4] + &#34;.&#34; + x[4:7]
+            )
+            dataframe = dataframe[ordem]
+            subitem_1 = pd.DataFrame(dataframe)
+        elif &#34;_&#34;.join(arq.split(&#34;_&#34;)[1:]).split(&#34;.&#34;, maxsplit=1)[0] == &#34;subitem_2&#34;:
+            dataframe[&#34;id_categoria_bd&#34;] = dataframe[&#34;id_categoria&#34;].apply(
+                lambda x: x[0] + &#34;.&#34; + x[1] + &#34;.&#34; + x[2:4] + &#34;.&#34; + x[4:7]
+            )
+            dataframe = dataframe[ordem]
+            subitem_2 = pd.DataFrame(dataframe)
+        elif arq.split(&#34;_&#34;)[-1].split(&#34;.&#34;)[0] == &#34;geral&#34;:
+            dataframe[&#34;id_categoria&#34;] = &#34;&#34;
+            dataframe[&#34;id_categoria_bd&#34;] = &#34;0.0.00.000&#34;
+            dataframe = dataframe[ordem]
+            geral = pd.DataFrame(dataframe)
+
+    # Add only dataframes defined in previous loop. Download failure leads to some dataframe not being defined
+    files_dict = {
+        &#34;grupo&#34;: grupo if &#34;grupo&#34; in locals() else &#34;&#34;,
+        &#34;subgrupo&#34;: subgrupo if &#34;subgrupo&#34; in locals() else &#34;&#34;,
+        &#34;item&#34;: item if &#34;item&#34; in locals() else &#34;&#34;,
+        &#34;subitem_1&#34;: subitem_1 if &#34;subitem_1&#34; in locals() else &#34;&#34;,
+        &#34;subitem_2&#34;: subitem_2 if &#34;subitem_2&#34; in locals() else &#34;&#34;,
+        &#34;geral&#34;: geral if &#34;geral&#34; in locals() else &#34;&#34;,
+    }
+
+    downloaded = [
+        k for k in files_dict.keys() if isinstance(files_dict[k], pd.DataFrame)
+    ]
+    dataframe = pd.concat([files_dict[k] for k in downloaded])
+    filepath = f&#34;/tmp/data/output/{indice}/categoria_rm.csv&#34;
+    dataframe.to_csv(filepath, index=False)
+
+    return filepath</code></pre>
+</details>
+</dd>
+<dt id="pipelines.utils.crawler_ibge_inflacao.tasks.crawler"><code class="name flex">
+<span>def <span class="ident">crawler</span></span>(<span>indice: str, folder: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Crawler for IBGE Inflacao</p>
+<p>indice: inpc | ipca | ip15
+folder: br | rm | mun | mes</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@task
+def crawler(indice: str, folder: str) -&gt; bool:
+    &#34;&#34;&#34;
+    Crawler for IBGE Inflacao
+
+    indice: inpc | ipca | ip15
+    folder: br | rm | mun | mes
+    &#34;&#34;&#34;
+    if folder not in [&#34;br&#34;, &#34;rm&#34;, &#34;mun&#34;, &#34;mes&#34;]:
+        raise ValueError(
+            &#34;folder argument must be one of the following: &#39;br&#39;, &#39;rm&#39;, &#39;mun&#39;, &#39;mes&#39;&#34;
+        )
+
+    if indice not in [&#34;inpc&#34;, &#34;ipca&#34;, &#34;ip15&#34;]:
+        raise ValueError(
+            &#34;indice argument must be one of the following: &#39;inpc&#39;, &#39;ipca&#39;, &#39;ip15&#39;&#34;
+        )
+
+    log(f&#34;Crawling {indice}&#34;)
+    os.system(&#34;[ -e /tmp/data/input/ ] &amp;&amp; rm -r /tmp/data/input/&#34;)
+    os.system(&#34;[ -e /tmp/data/output/ ] &amp;&amp; rm -r /tmp/data/output/&#34;)
+    os.system(&#39;mkdir -p &#34;/tmp/data&#34;&#39;)
+    os.system(&#39;mkdir -p &#34;/tmp/data/input&#34;&#39;)
+    os.system(&#39;mkdir -p &#34;/tmp/data/input/br&#34;&#39;)
+    os.system(&#39;mkdir -p &#34;/tmp/data/input/rm&#34;&#39;)
+    os.system(&#39;mkdir -p &#34;/tmp/data/input/mun&#34;&#39;)
+    os.system(&#39;mkdir -p &#34;/tmp/data/input/mes&#34;&#39;)
+    os.system(&#39;mkdir -p &#34;/tmp/data/output&#34;&#39;)
+    os.system(&#39;mkdir -p &#34;/tmp/data/output/ip15&#34;&#39;)
+    os.system(&#39;mkdir -p &#34;/tmp/data/output/ipca&#34;&#39;)
+    os.system(&#39;mkdir -p &#34;/tmp/data/output/inpc&#34;&#39;)
+    log(os.system(&#34;tree /tmp/data&#34;))
+    links = {
+        &#34;br/ipca_grupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7060.csv&amp;terr=NC&amp;rank=-&amp;query=t/7060/n1/all/v/all/p/all/c315/7170,7445,7486,7558,7625,7660,7712,7766,7786/d/v63%202,v66%204,v69%202,v2265%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;br/inpc_grupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7063.csv&amp;terr=NC&amp;rank=-&amp;query=t/7063/n1/all/v/all/p/all/c315/7170,7445,7486,7558,7625,7660,7712,7766,7786/d/v44%202,v45%204,v68%202,v2292%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;br/ip15_grupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7062.csv&amp;terr=NC&amp;rank=-&amp;query=t/7062/n1/all/v/all/p/all/c315/7170,7445,7486,7558,7625,7660,7712,7766,7786/d/v355%202,v356%202,v357%204,v1120%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;br/ipca_subgrupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7060.csv&amp;terr=NC&amp;rank=-&amp;query=t/7060/n1/all/v/all/p/all/c315/7171,7432,7446,7479,7487,7521,7548,7559,7604,7615,7620,7626,7661,7683,7697,7713,7767,7787,47656/d/v63%202,v66%204,v69%202,v2265%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;br/inpc_subgrupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7063.csv&amp;terr=NC&amp;rank=-&amp;query=t/7063/n1/all/v/all/p/all/c315/7171,7432,7446,7479,7487,7521,7548,7559,7604,7615,7620,7626,7661,7683,7697,7713,7767,7787,47656/d/v44%202,v45%204,v68%202,v2292%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;br/ip15_subgrupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7062.csv&amp;terr=NC&amp;rank=-&amp;query=t/7062/n1/all/v/all/p/all/c315/7171,7432,7446,7479,7487,7521,7548,7559,7604,7615,7620,7626,7661,7683,7697,7713,7767,7787,47656/d/v355%202,v356%202,v357%204,v1120%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;br/ipca_item&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7060.csv&amp;terr=NC&amp;rank=-&amp;query=t/7060/n1/all/v/all/p/all/c315/7172,7184,7200,7219,7241,7254,7283,7303,7335,7349,7356,7372,7384,7389,7401,7415,7433,7447,7454,7461,7480,7484,7488,7495,7517,7522,7541,7549,7560,7572,7587,7605,7616,7621,7627,7640,7656,7662,7684,7690,7695,7698,7714,7730,7758,7777,7782,7788,12427,107678,109464/d/v63%202,v66%204,v69%202,v2265%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;br/inpc_item&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7063.csv&amp;terr=NC&amp;rank=-&amp;query=t/7063/n1/all/v/all/p/all/c315/7172,7184,7200,7219,7241,7254,7283,7303,7335,7349,7356,7372,7384,7389,7401,7415,7433,7447,7454,7461,7480,7484,7488,7495,7517,7522,7541,7549,7560,7572,7587,7605,7616,7621,7627,7640,7656,7662,7684,7690,7695,7698,7714,7730,7758,7777,7782,7788,12427,107678,109464/d/v44%202,v45%204,v68%202,v2292%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;br/ip15_item&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7062.csv&amp;terr=NC&amp;rank=-&amp;query=t/7062/n1/all/v/all/p/all/c315/7172,7184,7200,7219,7241,7254,7283,7303,7335,7349,7356,7372,7384,7389,7401,7415,7433,7447,7454,7461,7480,7484,7488,7495,7517,7522,7541,7549,7560,7572,7587,7605,7616,7621,7627,7640,7656,7662,7684,7690,7695,7698,7714,7730,7758,7777,7782,7788,12427,107678,109464/d/v355%202,v356%202,v357%204,v1120%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;br/ipca_subitem&#34;: &#34;https://sidra.ibge.gov.br/geratabela/DownloadSelecaoComplexa/947075621&#34;,
+        &#34;br/inpc_subitem&#34;: &#34;https://sidra.ibge.gov.br/geratabela/DownloadSelecaoComplexa/1084704443&#34;,
+        &#34;br/ip15_subitem&#34;: &#34;https://sidra.ibge.gov.br/geratabela/DownloadSelecaoComplexa/-783617233&#34;,
+        &#34;br/ipca_geral&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7060.csv&amp;terr=NC&amp;rank=-&amp;query=t/7060/n1/all/v/all/p/all/c315/7169/d/v63%202,v66%204,v69%202,v2265%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;br/inpc_geral&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7063.csv&amp;terr=NC&amp;rank=-&amp;query=t/7063/n1/all/v/all/p/all/c315/7169/d/v44%202,v45%204,v68%202,v2292%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;br/ip15_geral&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7062.csv&amp;terr=NC&amp;rank=-&amp;query=t/7062/n1/all/v/all/p/all/c315/7169/d/v355%202,v356%202,v357%204,v1120%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;rm/ipca_grupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7060.csv&amp;terr=NC&amp;rank=-&amp;query=t/7060/n7/all/v/all/p/all/c315/7170,7445,7486,7558,7625,7660,7712,7766,7786/d/v63%202,v66%204,v69%202,v2265%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;rm/inpc_grupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7063.csv&amp;terr=NC&amp;rank=-&amp;query=t/7063/n7/all/v/all/p/all/c315/7170,7445,7486,7558,7625,7660,7712,7766,7786/d/v44%202,v45%204,v68%202,v2292%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;rm/ip15_grupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7062.csv&amp;terr=NC&amp;rank=-&amp;query=t/7062/n7/all/v/all/p/all/c315/7170,7445,7486,7558,7625,7660,7712,7766,7786/d/v355%202,v356%202,v357%204,v1120%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;rm/ipca_subgrupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7060.csv&amp;terr=NC&amp;rank=-&amp;query=t/7060/n7/all/v/all/p/all/c315/7171,7432,7446,7479,7487,7521,7548,7559,7604,7615,7620,7626,7661,7683,7697,7713,7767,7787,47656/d/v63%202,v66%204,v69%202,v2265%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;rm/inpc_subgrupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7063.csv&amp;terr=NC&amp;rank=-&amp;query=t/7063/n7/all/v/all/p/all/c315/7171,7432,7446,7479,7487,7521,7548,7559,7604,7615,7620,7626,7661,7683,7697,7713,7767,7787,47656/d/v44%202,v45%204,v68%202,v2292%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;rm/ip15_subgrupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7062.csv&amp;terr=NC&amp;rank=-&amp;query=t/7062/n7/all/v/all/p/all/c315/7171,7432,7446,7479,7487,7521,7548,7559,7604,7615,7620,7626,7661,7683,7697,7713,7767,7787,47656/d/v355%202,v356%202,v357%204,v1120%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;rm/ipca_item&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7060.csv&amp;terr=NC&amp;rank=-&amp;query=t/7060/n7/all/v/all/p/all/c315/7172,7184,7200,7219,7241,7254,7283,7303,7335,7349,7356,7372,7384,7389,7401,7415,7433,7447,7454,7461,7480,7484,7488,7495,7517,7522,7541,7549,7560,7572,7587,7605,7616,7621,7627,7640,7656,7662,7684,7690,7695,7698,7714,7730,7758,7777,7782,7788,12427,107678,109464/d/v63%202,v66%204,v69%202,v2265%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;rm/inpc_item&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7063.csv&amp;terr=NC&amp;rank=-&amp;query=t/7063/n7/all/v/all/p/all/c315/7172,7184,7200,7219,7241,7254,7283,7303,7335,7349,7356,7372,7384,7389,7401,7415,7433,7447,7454,7461,7480,7484,7488,7495,7517,7522,7541,7549,7560,7572,7587,7605,7616,7621,7627,7640,7656,7662,7684,7690,7695,7698,7714,7730,7758,7777,7782,7788,12427,107678,109464/d/v44%202,v45%204,v68%202,v2292%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;rm/ip15_item&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7062.csv&amp;terr=NC&amp;rank=-&amp;query=t/7062/n7/all/v/all/p/all/c315/7172,7184,7200,7219,7241,7254,7283,7303,7335,7349,7356,7372,7384,7389,7401,7415,7433,7447,7454,7461,7480,7484,7488,7495,7517,7522,7541,7549,7560,7572,7587,7605,7616,7621,7627,7640,7656,7662,7684,7690,7695,7698,7714,7730,7758,7777,7782,7788,12427,107678,109464/d/v355%202,v356%202,v357%204,v1120%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;rm/ipca_subitem_1&#34;: &#34;https://sidra.ibge.gov.br/geratabela/DownloadSelecaoComplexa/947075621&#34;,
+        &#34;rm/ipca_subitem_2&#34;: &#34;https://sidra.ibge.gov.br/geratabela/DownloadSelecaoComplexa/847634158&#34;,
+        &#34;rm/inpc_subitem_1&#34;: &#34;https://sidra.ibge.gov.br/geratabela/DownloadSelecaoComplexa/-884745035&#34;,
+        &#34;rm/inpc_subitem_2&#34;: &#34;https://sidra.ibge.gov.br/geratabela/DownloadSelecaoComplexa/-1265010694&#34;,
+        &#34;rm/ip15_subitem_1&#34;: &#34;https://sidra.ibge.gov.br/geratabela/DownloadSelecaoComplexa/-1750716307&#34;,
+        &#34;rm/ip15_subitem_2&#34;: &#34;https://sidra.ibge.gov.br/geratabela/DownloadSelecaoComplexa/-1258570016&#34;,
+        &#34;rm/ipca_geral&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7060.csv&amp;terr=NC&amp;rank=-&amp;query=t/7060/n7/all/v/all/p/all/c315/7169/d/v63%202,v66%204,v69%202,v2265%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;rm/inpc_geral&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7063.csv&amp;terr=NC&amp;rank=-&amp;query=t/7063/n7/all/v/all/p/all/c315/7169/d/v44%202,v45%204,v68%202,v2292%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;rm/ip15_geral&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7062.csv&amp;terr=NC&amp;rank=-&amp;query=t/7062/n7/all/v/all/p/all/c315/7169/d/v355%202,v356%202,v357%204,v1120%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;mun/ipca_grupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7060.csv&amp;terr=NC&amp;rank=-&amp;query=t/7060/n6/all/v/all/p/all/c315/7170,7445,7486,7558,7625,7660,7712,7766,7786/d/v63%202,v66%204,v69%202,v2265%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;mun/inpc_grupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7063.csv&amp;terr=NC&amp;rank=-&amp;query=t/7063/n6/all/v/all/p/all/c315/7170,7445,7486,7558,7625,7660,7712,7766,7786/d/v44%202,v45%204,v68%202,v2292%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;mun/ip15_grupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7062.csv&amp;terr=NC&amp;rank=-&amp;query=t/7062/n6/all/v/all/p/all/c315/7170,7445,7486,7558,7625,7660,7712,7766,7786/d/v355%202,v356%202,v357%204,v1120%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;mun/ipca_subgrupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7060.csv&amp;terr=NC&amp;rank=-&amp;query=t/7060/n6/all/v/all/p/all/c315/7171,7432,7446,7479,7487,7521,7548,7559,7604,7615,7620,7626,7661,7683,7697,7713,7767,7787,47656/d/v63%202,v66%204,v69%202,v2265%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;mun/inpc_subgrupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7063.csv&amp;terr=NC&amp;rank=-&amp;query=t/7063/n6/all/v/all/p/all/c315/7171,7432,7446,7479,7487,7521,7548,7559,7604,7615,7620,7626,7661,7683,7697,7713,7767,7787,47656/d/v44%202,v45%204,v68%202,v2292%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;mun/ip15_subgrupo&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7062.csv&amp;terr=NC&amp;rank=-&amp;query=t/7062/n6/all/v/all/p/all/c315/7171,7432,7446,7479,7487,7521,7548,7559,7604,7615,7620,7626,7661,7683,7697,7713,7767,7787,47656/d/v355%202,v356%202,v357%204,v1120%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;mun/ipca_item&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7060.csv&amp;terr=NC&amp;rank=-&amp;query=t/7060/n6/all/v/all/p/all/c315/7172,7184,7200,7219,7241,7254,7283,7303,7335,7349,7356,7372,7384,7389,7401,7415,7433,7447,7454,7461,7480,7484,7488,7495,7517,7522,7541,7549,7560,7572,7587,7605,7616,7621,7627,7640,7656,7662,7684,7690,7695,7698,7714,7730,7758,7777,7782,7788,12427,107678,109464/d/v63%202,v66%204,v69%202,v2265%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;mun/inpc_item&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7063.csv&amp;terr=NC&amp;rank=-&amp;query=t/7063/n6/all/v/all/p/all/c315/7172,7184,7200,7219,7241,7254,7283,7303,7335,7349,7356,7372,7384,7389,7401,7415,7433,7447,7454,7461,7480,7484,7488,7495,7517,7522,7541,7549,7560,7572,7587,7605,7616,7621,7627,7640,7656,7662,7684,7690,7695,7698,7714,7730,7758,7777,7782,7788,12427,107678,109464/d/v44%202,v45%204,v68%202,v2292%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;mun/ip15_item&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7062.csv&amp;terr=NC&amp;rank=-&amp;query=t/7062/n6/all/v/all/p/all/c315/7172,7184,7200,7219,7241,7254,7283,7303,7335,7349,7356,7372,7384,7389,7401,7415,7433,7447,7454,7461,7480,7484,7488,7495,7517,7522,7541,7549,7560,7572,7587,7605,7616,7621,7627,7640,7656,7662,7684,7690,7695,7698,7714,7730,7758,7777,7782,7788,12427,107678,109464/d/v355%202,v356%202,v357%204,v1120%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;mun/ipca_subitem_1&#34;: &#34;https://sidra.ibge.gov.br/geratabela/DownloadSelecaoComplexa/866963382&#34;,
+        &#34;mun/ipca_subitem_2&#34;: &#34;https://sidra.ibge.gov.br/geratabela/DownloadSelecaoComplexa/-113176757&#34;,
+        &#34;mun/inpc_subitem_1&#34;: &#34;https://sidra.ibge.gov.br/geratabela/DownloadSelecaoComplexa/1139761886&#34;,
+        &#34;mun/inpc_subitem_2&#34;: &#34;https://sidra.ibge.gov.br/geratabela/DownloadSelecaoComplexa/-1289673003&#34;,
+        &#34;mun/ip15_subitem_1&#34;: &#34;https://sidra.ibge.gov.br/geratabela/DownloadSelecaoComplexa/-260564956&#34;,
+        &#34;mun/ip15_subitem_2&#34;: &#34;https://sidra.ibge.gov.br/geratabela/DownloadSelecaoComplexa/-317614754&#34;,
+        &#34;mun/ipca_geral&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7060.csv&amp;terr=NC&amp;rank=-&amp;query=t/7060/n6/all/v/all/p/all/c315/7169/d/v63%202,v66%204,v69%202,v2265%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;mun/inpc_geral&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7063.csv&amp;terr=NC&amp;rank=-&amp;query=t/7063/n6/all/v/all/p/all/c315/7169/d/v44%202,v45%204,v68%202,v2292%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;mun/ip15_geral&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela7062.csv&amp;terr=NC&amp;rank=-&amp;query=t/7062/n6/all/v/all/p/all/c315/7169/d/v355%202,v356%202,v357%204,v1120%202/l/,v,t%2Bp%2Bc315&#34;,
+        &#34;mes/ipca_geral&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela1737.csv&amp;terr=N&amp;rank=-&amp;query=t/1737/n1/all/v/all/p/all/d/v63%202,v69%202,v2263%202,v2264%202,v2265%202,v2266%2013/l/,v,t%2Bp&amp;abreviarRotulos=True&amp;exibirNotas=False&#34;,
+        &#34;mes/ip15_geral&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela3065.csv&amp;terr=N&amp;rank=-&amp;query=t/3065/n1/all/v/all/p/all/d/v355%202,v356%202,v1117%2013,v1118%202,v1119%202,v1120%202/l/,v,t%2Bp&amp;abreviarRotulos=True&amp;exibirNotas=False&#34;,
+        &#34;mes/inpc_geral&#34;: &#34;https://sidra.ibge.gov.br/geratabela?format=br.csv&amp;name=tabela1736.csv&amp;terr=N&amp;rank=-&amp;query=t/1736/n1/all/v/all/p/all/d/v44%202,v68%202,v2289%2013,v2290%202,v2291%202,v2292%202/l/,v,t%2Bp&amp;abreviarRotulos=True&amp;exibirNotas=False&#34;,
+    }
+
+    links = {
+        k: v
+        for k, v in links.items()
+        if k.__contains__(indice) &amp; k.__contains__(folder)
+    }
+    # precisei adicionar try catchs no loop para conseguir baixar todas
+    # as tabelas sem ter pproblema com o limite de requisição do sidra
+    links_keys = list(links.keys())
+    success_dwnl = []
+    for key in tqdm(links_keys):
+        try:
+            wget.download(links[key], out=f&#34;/tmp/data/input/{key}.csv&#34;)
+            success_dwnl.append(key)
+        except Exception:
+            try:
+                sleep(10)
+                wget.download(links[key], out=f&#34;/tmp/data/input/{key}.csv&#34;)
+                success_dwnl.append(key)
+            except Exception:
+                pass
+
+    log(os.system(&#34;tree /tmp/data&#34;))
+    if len(links_keys) == len(success_dwnl):
+        log(&#34;All files were successfully downloaded&#34;)
+        return True
+
+    log(&#34;The folowing files failed to download:&#34;)
+    rems = set(links_keys) - set(success_dwnl)
+    for rem in rems:
+        log(rem)
+    return False</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pipelines.utils.crawler_ibge_inflacao" href="index.html">pipelines.utils.crawler_ibge_inflacao</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="pipelines.utils.crawler_ibge_inflacao.tasks.clean_mes_brasil" href="#pipelines.utils.crawler_ibge_inflacao.tasks.clean_mes_brasil">clean_mes_brasil</a></code></li>
+<li><code><a title="pipelines.utils.crawler_ibge_inflacao.tasks.clean_mes_geral" href="#pipelines.utils.crawler_ibge_inflacao.tasks.clean_mes_geral">clean_mes_geral</a></code></li>
+<li><code><a title="pipelines.utils.crawler_ibge_inflacao.tasks.clean_mes_municipio" href="#pipelines.utils.crawler_ibge_inflacao.tasks.clean_mes_municipio">clean_mes_municipio</a></code></li>
+<li><code><a title="pipelines.utils.crawler_ibge_inflacao.tasks.clean_mes_rm" href="#pipelines.utils.crawler_ibge_inflacao.tasks.clean_mes_rm">clean_mes_rm</a></code></li>
+<li><code><a title="pipelines.utils.crawler_ibge_inflacao.tasks.crawler" href="#pipelines.utils.crawler_ibge_inflacao.tasks.crawler">crawler</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

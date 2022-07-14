@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>pipelines.datasets.br_bd_indicadores.tasks API documentation</title>
+<meta name="description" content="Tasks for br_twitter" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pipelines.datasets.br_bd_indicadores.tasks</code></h1>
+</header>
+<section id="section-intro">
+<p>Tasks for br_twitter</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python"># -*- coding: utf-8 -*-
+&#34;&#34;&#34;
+Tasks for br_twitter
+&#34;&#34;&#34;
+import os
+from datetime import datetime, timedelta
+from typing import Tuple
+
+import pytz
+from prefect import task
+import requests
+from tqdm import tqdm
+from requests_oauthlib import OAuth1
+import pandas as pd
+import numpy as np
+
+from pipelines.utils.utils import get_storage_blobs, log, get_credentials_from_secret
+from pipelines.datasets.br_bd_indicadores.utils import (
+    create_headers,
+    create_url,
+    connect_to_endpoint,
+    flatten,
+)
+from pipelines.constants import constants
+
+
+# pylint: disable=C0103
+@task(
+    max_retries=constants.TASK_MAX_RETRIES.value,
+    retry_delay=timedelta(seconds=constants.TASK_RETRY_DELAY.value),
+)
+def echo(message: str) -&gt; None:
+    &#34;&#34;&#34;
+    Logs message as a Task
+    &#34;&#34;&#34;
+    log(message)
+
+
+# pylint: disable=W0613
+@task(checkpoint=False, nout=5)
+def get_credentials(secret_path: str, wait=None) -&gt; Tuple[str, str, str, str, str]:
+    &#34;&#34;&#34;
+    Returns the user and password for the given secret path.
+    &#34;&#34;&#34;
+    log(f&#34;Getting user and password for secret path: {secret_path}&#34;)
+    tokens_dict = get_credentials_from_secret(secret_path)
+    access_secret = tokens_dict[&#34;ACCESS_SECRET&#34;]
+    access_token = tokens_dict[&#34;ACCESS_TOKEN&#34;]
+    consumer_key = tokens_dict[&#34;CONSUMER_KEY&#34;]
+    consumer_secret = tokens_dict[&#34;CONSUMER_SECRET&#34;]
+    twitter_token = tokens_dict[&#34;TWITTER_TOKEN&#34;]
+
+    return access_secret, access_token, consumer_key, consumer_secret, twitter_token
+
+
+# pylint: disable=R0914
+@task(
+    max_retries=constants.TASK_MAX_RETRIES.value,
+    retry_delay=timedelta(seconds=constants.TASK_RETRY_DELAY.value),
+)
+def has_new_tweets(bearer_token: str, table_id: str) -&gt; bool:
+    &#34;&#34;&#34;
+    Checks if there are new tweets to capture data
+    &#34;&#34;&#34;
+    now = datetime.now(tz=pytz.UTC)
+    headers = create_headers(bearer_token)
+
+    # non_public_metrics only available for last 30 days
+    before = now - timedelta(days=29)
+    start_time = before.strftime(&#34;%Y-%m-%dT00:00:00.000Z&#34;)
+    end_time = now.strftime(&#34;%Y-%m-%dT00:00:00.000Z&#34;)
+    max_results = 100
+    # pylint: disable=E1121
+    url = create_url(start_time, end_time, max_results)
+    json_response = connect_to_endpoint(url[0], headers, url[1])
+    data = [flatten(i) for i in json_response[&#34;data&#34;]]
+    df1 = pd.DataFrame(data)
+
+    blobs = get_storage_blobs(dataset_id=&#34;br_bd_indicadores&#34;, table_id=table_id)
+    now = datetime.now(tz=pytz.UTC)
+
+    if len(blobs) != 0:
+        dfs = []
+        for blob in blobs:
+            url_data = blob.public_url
+            df = pd.read_csv(url_data, dtype={&#34;id&#34;: str})
+            dfs.append(df)
+
+        df = dfs[0].append(dfs[1:])
+        ids = df.id.to_list()
+        df1 = df1[~df1[&#34;id&#34;].isin(ids)]
+
+    if len(df1) &gt; 0:
+        log(f&#34;{len(df1)} new tweets founded&#34;)
+
+    df1.to_csv(&#34;/tmp/basic_metrics.csv&#34;, index=False)
+
+    return not df1.empty
+
+
+@task(
+    max_retries=constants.TASK_MAX_RETRIES.value,
+    retry_delay=timedelta(seconds=constants.TASK_RETRY_DELAY.value),
+)
+def crawler_metricas(
+    access_secret: str,
+    access_token: str,
+    consumer_key: str,
+    consumer_secret: str,
+    table_id: str,
+) -&gt; str:
+    &#34;&#34;&#34;
+    Create file with public and non_public_metrics from Twitter API
+    &#34;&#34;&#34;
+    df1 = pd.read_csv(&#34;/tmp/basic_metrics.csv&#34;)
+    ids = df1[&#34;id&#34;].to_list()
+
+    headeroauth = OAuth1(
+        consumer_key,
+        consumer_secret,
+        access_token,
+        access_secret,
+        signature_type=&#34;auth_header&#34;,
+    )
+
+    temp_dict = {}
+    for id_field in tqdm(ids):
+        # retweets don&#39;t have non_public_metrics
+        if not df1[df1.id == id_field].text.to_list()[0].startswith(&#34;RT @&#34;):
+            url = f&#34;https://api.twitter.com/2/tweets/{id_field}?tweet.fields=non_public_metrics&#34;
+
+            try:
+                r = requests.get(url, auth=headeroauth)
+
+                json_response = r.json()
+                temp_dict.update(
+                    {id_field: json_response[&#34;data&#34;][&#34;non_public_metrics&#34;]}
+                )
+            except KeyError:
+                log(json_response[&#34;errors&#34;])
+        else:
+            temp_dict.update(
+                {
+                    id_field: {
+                        &#34;url_link_clicks&#34;: np.nan,
+                        &#34;user_profile_clicks&#34;: np.nan,
+                        &#34;impression_count&#34;: np.nan,
+                    }
+                }
+            )
+
+    df2 = pd.DataFrame(temp_dict).T
+    df2.columns = [&#34;non_public_metrics_&#34; + k for k in df2.columns]
+
+    df = df1.set_index(&#34;id&#34;).join(df2)
+
+    df.columns = [
+        col.replace(&#34;non_public_metrics_&#34;, &#34;&#34;).replace(&#34;public_metrics_&#34;, &#34;&#34;)
+        for col in df.columns
+    ]
+
+    url = (
+        &#34;https://api.twitter.com/2/users/1184334528837574656?user.fields=public_metrics&#34;
+    )
+    try:
+        r = requests.get(url, auth=headeroauth)
+        json_response = r.json()
+        result = json_response[&#34;data&#34;][&#34;public_metrics&#34;]
+    except KeyError:
+        log(json_response[&#34;errors&#34;])
+
+    df[&#34;following_count&#34;] = result[&#34;following_count&#34;]
+    df[&#34;followers_count&#34;] = result[&#34;followers_count&#34;]
+    df[&#34;tweet_count&#34;] = result[&#34;tweet_count&#34;]
+    df[&#34;listed_count&#34;] = result[&#34;listed_count&#34;]
+
+    df.reset_index(inplace=True)
+
+    df = df.reindex(
+        [
+            &#34;id&#34;,
+            &#34;text&#34;,
+            &#34;created_at&#34;,
+            &#34;retweet_count&#34;,
+            &#34;reply_count&#34;,
+            &#34;like_count&#34;,
+            &#34;quote_count&#34;,
+            &#34;impression_count&#34;,
+            &#34;user_profile_clicks&#34;,
+            &#34;url_link_clicks&#34;,
+            &#34;following_count&#34;,
+            &#34;followers_count&#34;,
+            &#34;tweet_count&#34;,
+            &#34;listed_count&#34;,
+        ],
+        axis=1,
+    )
+
+    # pylint: disable=C0301
+    full_filepath = f&#34;/tmp/data/{table_id}/upload_ts={str(int(datetime.now().timestamp()))}/{table_id}.csv&#34;
+    folder = full_filepath.replace(table_id + &#34;.csv&#34;, &#34;&#34;)
+    log(folder)
+    os.system(f&#34;mkdir -p {folder}&#34;)
+    df.to_csv(full_filepath, index=False)
+
+    return f&#34;/tmp/data/{table_id}/&#34;</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="pipelines.datasets.br_bd_indicadores.tasks.crawler_metricas"><code class="name flex">
+<span>def <span class="ident">crawler_metricas</span></span>(<span>access_secret: str, access_token: str, consumer_key: str, consumer_secret: str, table_id: str) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Create file with public and non_public_metrics from Twitter API</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@task(
+    max_retries=constants.TASK_MAX_RETRIES.value,
+    retry_delay=timedelta(seconds=constants.TASK_RETRY_DELAY.value),
+)
+def crawler_metricas(
+    access_secret: str,
+    access_token: str,
+    consumer_key: str,
+    consumer_secret: str,
+    table_id: str,
+) -&gt; str:
+    &#34;&#34;&#34;
+    Create file with public and non_public_metrics from Twitter API
+    &#34;&#34;&#34;
+    df1 = pd.read_csv(&#34;/tmp/basic_metrics.csv&#34;)
+    ids = df1[&#34;id&#34;].to_list()
+
+    headeroauth = OAuth1(
+        consumer_key,
+        consumer_secret,
+        access_token,
+        access_secret,
+        signature_type=&#34;auth_header&#34;,
+    )
+
+    temp_dict = {}
+    for id_field in tqdm(ids):
+        # retweets don&#39;t have non_public_metrics
+        if not df1[df1.id == id_field].text.to_list()[0].startswith(&#34;RT @&#34;):
+            url = f&#34;https://api.twitter.com/2/tweets/{id_field}?tweet.fields=non_public_metrics&#34;
+
+            try:
+                r = requests.get(url, auth=headeroauth)
+
+                json_response = r.json()
+                temp_dict.update(
+                    {id_field: json_response[&#34;data&#34;][&#34;non_public_metrics&#34;]}
+                )
+            except KeyError:
+                log(json_response[&#34;errors&#34;])
+        else:
+            temp_dict.update(
+                {
+                    id_field: {
+                        &#34;url_link_clicks&#34;: np.nan,
+                        &#34;user_profile_clicks&#34;: np.nan,
+                        &#34;impression_count&#34;: np.nan,
+                    }
+                }
+            )
+
+    df2 = pd.DataFrame(temp_dict).T
+    df2.columns = [&#34;non_public_metrics_&#34; + k for k in df2.columns]
+
+    df = df1.set_index(&#34;id&#34;).join(df2)
+
+    df.columns = [
+        col.replace(&#34;non_public_metrics_&#34;, &#34;&#34;).replace(&#34;public_metrics_&#34;, &#34;&#34;)
+        for col in df.columns
+    ]
+
+    url = (
+        &#34;https://api.twitter.com/2/users/1184334528837574656?user.fields=public_metrics&#34;
+    )
+    try:
+        r = requests.get(url, auth=headeroauth)
+        json_response = r.json()
+        result = json_response[&#34;data&#34;][&#34;public_metrics&#34;]
+    except KeyError:
+        log(json_response[&#34;errors&#34;])
+
+    df[&#34;following_count&#34;] = result[&#34;following_count&#34;]
+    df[&#34;followers_count&#34;] = result[&#34;followers_count&#34;]
+    df[&#34;tweet_count&#34;] = result[&#34;tweet_count&#34;]
+    df[&#34;listed_count&#34;] = result[&#34;listed_count&#34;]
+
+    df.reset_index(inplace=True)
+
+    df = df.reindex(
+        [
+            &#34;id&#34;,
+            &#34;text&#34;,
+            &#34;created_at&#34;,
+            &#34;retweet_count&#34;,
+            &#34;reply_count&#34;,
+            &#34;like_count&#34;,
+            &#34;quote_count&#34;,
+            &#34;impression_count&#34;,
+            &#34;user_profile_clicks&#34;,
+            &#34;url_link_clicks&#34;,
+            &#34;following_count&#34;,
+            &#34;followers_count&#34;,
+            &#34;tweet_count&#34;,
+            &#34;listed_count&#34;,
+        ],
+        axis=1,
+    )
+
+    # pylint: disable=C0301
+    full_filepath = f&#34;/tmp/data/{table_id}/upload_ts={str(int(datetime.now().timestamp()))}/{table_id}.csv&#34;
+    folder = full_filepath.replace(table_id + &#34;.csv&#34;, &#34;&#34;)
+    log(folder)
+    os.system(f&#34;mkdir -p {folder}&#34;)
+    df.to_csv(full_filepath, index=False)
+
+    return f&#34;/tmp/data/{table_id}/&#34;</code></pre>
+</details>
+</dd>
+<dt id="pipelines.datasets.br_bd_indicadores.tasks.echo"><code class="name flex">
+<span>def <span class="ident">echo</span></span>(<span>message: str) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Logs message as a Task</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@task(
+    max_retries=constants.TASK_MAX_RETRIES.value,
+    retry_delay=timedelta(seconds=constants.TASK_RETRY_DELAY.value),
+)
+def echo(message: str) -&gt; None:
+    &#34;&#34;&#34;
+    Logs message as a Task
+    &#34;&#34;&#34;
+    log(message)</code></pre>
+</details>
+</dd>
+<dt id="pipelines.datasets.br_bd_indicadores.tasks.get_credentials"><code class="name flex">
+<span>def <span class="ident">get_credentials</span></span>(<span>secret_path: str, wait=None) ‑> Tuple[str, str, str, str, str]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the user and password for the given secret path.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@task(checkpoint=False, nout=5)
+def get_credentials(secret_path: str, wait=None) -&gt; Tuple[str, str, str, str, str]:
+    &#34;&#34;&#34;
+    Returns the user and password for the given secret path.
+    &#34;&#34;&#34;
+    log(f&#34;Getting user and password for secret path: {secret_path}&#34;)
+    tokens_dict = get_credentials_from_secret(secret_path)
+    access_secret = tokens_dict[&#34;ACCESS_SECRET&#34;]
+    access_token = tokens_dict[&#34;ACCESS_TOKEN&#34;]
+    consumer_key = tokens_dict[&#34;CONSUMER_KEY&#34;]
+    consumer_secret = tokens_dict[&#34;CONSUMER_SECRET&#34;]
+    twitter_token = tokens_dict[&#34;TWITTER_TOKEN&#34;]
+
+    return access_secret, access_token, consumer_key, consumer_secret, twitter_token</code></pre>
+</details>
+</dd>
+<dt id="pipelines.datasets.br_bd_indicadores.tasks.has_new_tweets"><code class="name flex">
+<span>def <span class="ident">has_new_tweets</span></span>(<span>bearer_token: str, table_id: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if there are new tweets to capture data</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@task(
+    max_retries=constants.TASK_MAX_RETRIES.value,
+    retry_delay=timedelta(seconds=constants.TASK_RETRY_DELAY.value),
+)
+def has_new_tweets(bearer_token: str, table_id: str) -&gt; bool:
+    &#34;&#34;&#34;
+    Checks if there are new tweets to capture data
+    &#34;&#34;&#34;
+    now = datetime.now(tz=pytz.UTC)
+    headers = create_headers(bearer_token)
+
+    # non_public_metrics only available for last 30 days
+    before = now - timedelta(days=29)
+    start_time = before.strftime(&#34;%Y-%m-%dT00:00:00.000Z&#34;)
+    end_time = now.strftime(&#34;%Y-%m-%dT00:00:00.000Z&#34;)
+    max_results = 100
+    # pylint: disable=E1121
+    url = create_url(start_time, end_time, max_results)
+    json_response = connect_to_endpoint(url[0], headers, url[1])
+    data = [flatten(i) for i in json_response[&#34;data&#34;]]
+    df1 = pd.DataFrame(data)
+
+    blobs = get_storage_blobs(dataset_id=&#34;br_bd_indicadores&#34;, table_id=table_id)
+    now = datetime.now(tz=pytz.UTC)
+
+    if len(blobs) != 0:
+        dfs = []
+        for blob in blobs:
+            url_data = blob.public_url
+            df = pd.read_csv(url_data, dtype={&#34;id&#34;: str})
+            dfs.append(df)
+
+        df = dfs[0].append(dfs[1:])
+        ids = df.id.to_list()
+        df1 = df1[~df1[&#34;id&#34;].isin(ids)]
+
+    if len(df1) &gt; 0:
+        log(f&#34;{len(df1)} new tweets founded&#34;)
+
+    df1.to_csv(&#34;/tmp/basic_metrics.csv&#34;, index=False)
+
+    return not df1.empty</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pipelines.datasets.br_bd_indicadores" href="index.html">pipelines.datasets.br_bd_indicadores</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="pipelines.datasets.br_bd_indicadores.tasks.crawler_metricas" href="#pipelines.datasets.br_bd_indicadores.tasks.crawler_metricas">crawler_metricas</a></code></li>
+<li><code><a title="pipelines.datasets.br_bd_indicadores.tasks.echo" href="#pipelines.datasets.br_bd_indicadores.tasks.echo">echo</a></code></li>
+<li><code><a title="pipelines.datasets.br_bd_indicadores.tasks.get_credentials" href="#pipelines.datasets.br_bd_indicadores.tasks.get_credentials">get_credentials</a></code></li>
+<li><code><a title="pipelines.datasets.br_bd_indicadores.tasks.has_new_tweets" href="#pipelines.datasets.br_bd_indicadores.tasks.has_new_tweets">has_new_tweets</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

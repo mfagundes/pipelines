@@ -1,0 +1,907 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>pipelines.datasets.botdosdados.tasks API documentation</title>
+<meta name="description" content="Tasks for botdosdados" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pipelines.datasets.botdosdados.tasks</code></h1>
+</header>
+<section id="section-intro">
+<p>Tasks for botdosdados</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python"># -*- coding: utf-8 -*-
+&#34;&#34;&#34;
+Tasks for botdosdados
+&#34;&#34;&#34;
+import os
+from typing import Tuple
+from datetime import timedelta, datetime
+from collections import defaultdict
+
+import tweepy
+from tweepy.auth import OAuthHandler
+from prefect import task
+from basedosdados.download.metadata import _safe_fetch
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from pipelines.utils.utils import log, get_storage_blobs, get_credentials_from_secret
+from pipelines.constants import constants
+
+
+# pylint: disable=C0103
+@task(
+    max_retries=constants.TASK_MAX_RETRIES.value,
+    retry_delay=timedelta(seconds=constants.TASK_RETRY_DELAY.value),
+)
+def echo(message: str) -&gt; None:
+    &#34;&#34;&#34;
+    Logs message as a Task
+    &#34;&#34;&#34;
+    log(message)
+
+
+@task(checkpoint=False, nout=5)
+def get_credentials(secret_path: str) -&gt; Tuple[str, str, str, str, str]:
+    &#34;&#34;&#34;
+    Returns the user and password for the given secret path.
+    &#34;&#34;&#34;
+    log(f&#34;Getting user and password for secret path: {secret_path}&#34;)
+    tokens_dict = get_credentials_from_secret(secret_path)
+    access_token_secret = tokens_dict[&#34;ACCESS_SECRET&#34;]
+    access_token = tokens_dict[&#34;ACCESS_TOKEN&#34;]
+    consumer_key = tokens_dict[&#34;CONSUMER_KEY&#34;]
+    consumer_secret = tokens_dict[&#34;CONSUMER_SECRET&#34;]
+    twitter_token = tokens_dict[&#34;TWITTER_TOKEN&#34;]
+
+    return (
+        access_token_secret,
+        access_token,
+        consumer_key,
+        consumer_secret,
+        twitter_token,
+    )
+
+
+# pylint: disable=R0914
+# pylint: disable=R0913
+# pylint: disable=W0613
+@task(
+    max_retries=constants.TASK_MAX_RETRIES.value,
+    retry_delay=timedelta(seconds=constants.TASK_RETRY_DELAY.value),
+)
+def was_table_updated(page_size: int, hours: int, subset: str, wait=None) -&gt; bool:
+    &#34;&#34;&#34;
+    Checks if there are tables updated within last hour. If True, saves table locally.
+    &#34;&#34;&#34;
+
+    # pylint: disable=R0915
+    datasets_links = defaultdict(lambda: &#34;not selected&#34;)
+    datasets_links[
+        &#34;mundo_transfermarkt_competicoes&#34;
+    ] = &#34;https://basedosdados.org/dataset/mundo-transfermarkt-competicoes&#34;
+    datasets_links[
+        &#34;br_me_caged.microdados_antigos&#34;
+    ] = &#34;https://basedosdados.org/dataset/br-me-caged&#34;
+    datasets_links[&#34;br_ibge_inpc&#34;] = &#34;https://basedosdados.org/dataset/br-ibge-inpc&#34;
+    datasets_links[&#34;br_ibge_ipca&#34;] = &#34;https://basedosdados.org/dataset/br-ibge-ipca&#34;
+    datasets_links[&#34;br_ibge_ipca15&#34;] = &#34;https://basedosdados.org/dataset/br-ibge-ipca15&#34;
+    datasets_links[
+        &#34;br_anp_precos_combustiveis&#34;
+    ] = &#34;https://basedosdados.org/dataset/br-anp-precos-combustiveis&#34;
+    datasets_links[
+        &#34;br_poder360_pesquisas&#34;
+    ] = &#34;https://basedosdados.org/dataset/br-poder360-pesquisas&#34;
+    datasets_links[&#34;br_ms_cnes&#34;] = &#34;https://basedosdados.org/dataset/br-ms-cnes&#34;
+    datasets_links[
+        &#34;br_camara_atividade_legislativa&#34;
+    ] = &#34;https://basedosdados.org/dataset/br-camara-atividade-legislativa&#34;
+    datasets_links[&#34;br_ibge_pnadc&#34;] = &#34;https://basedosdados.org/dataset/br-ibge-pnadc&#34;
+    datasets_links[
+        &#34;br_ana_reservatorios&#34;
+    ] = &#34;https://basedosdados.org/dataset/br-ana-reservatorios&#34;
+
+    if subset == &#34;inflation&#34;:
+        datasets_links = {
+            k: v
+            for k, v in datasets_links.items()
+            if k in [&#34;br_ibge_inpc&#34;, &#34;br_ibge_ipca&#34;, &#34;br_ibge_ipca15&#34;]
+        }
+    else:
+        raise ValueError(&#34;Subset must me one of the following: inflation&#34;)
+
+    selected_datasets = list(datasets_links.keys())
+
+    url = f&#34;https://basedosdados.org/api/3/action/bd_dataset_search?q=&amp;resource_type=bdm_table&amp;page=1&amp;page_size={page_size}&#34;
+    response = _safe_fetch(url)
+    json_response = response.json()
+    datasets = json_response[&#34;result&#34;][&#34;datasets&#34;]
+    n_datasets = len(datasets)
+    dfs = []
+    for index in range(n_datasets):
+        dataset_dict = datasets[index]
+        for j in range(len(dataset_dict[&#34;resources&#34;])):
+            if dataset_dict[&#34;resources&#34;][j][&#34;resource_type&#34;] == &#34;bdm_table&#34;:
+                dataset_name = dataset_dict[&#34;resources&#34;][j][&#34;dataset_id&#34;]
+                break
+            continue
+        n_tables = len(dataset_dict[&#34;resources&#34;])
+        dataset_resources = [
+            dataset_dict[&#34;resources&#34;][k]
+            for k in range(n_tables)
+            if &#34;last_updated&#34; in dataset_dict[&#34;resources&#34;][k].keys()
+        ]
+        dataset_resources = [
+            dataset_resource
+            for dataset_resource in dataset_resources
+            if dataset_resource[&#34;last_updated&#34;] is not None
+        ]
+        dataset_resources = [
+            dataset_resource
+            for dataset_resource in dataset_resources
+            if dataset_resource[&#34;resource_type&#34;] == &#34;bdm_table&#34;
+        ]
+        n_tables = len(dataset_resources)
+        tables = [dataset_resources[k][&#34;name&#34;] for k in range(n_tables)]
+        last_updated = [
+            dataset_resources[k][&#34;last_updated&#34;][&#34;data&#34;] for k in range(n_tables)
+        ]
+        temporal_coverage = [
+            dataset_resources[k][&#34;temporal_coverage&#34;] for k in range(n_tables)
+        ]
+        updated_frequency = [
+            dataset_resources[k][&#34;update_frequency&#34;] for k in range(n_tables)
+        ]
+        df = pd.DataFrame(
+            {
+                &#34;table&#34;: tables,
+                &#34;last_updated&#34;: last_updated,
+                &#34;temporal_coverage&#34;: temporal_coverage,
+                &#34;updated_frequency&#34;: updated_frequency,
+            }
+        )
+        df[&#34;dataset&#34;] = dataset_name
+        df = df.reindex(
+            [
+                &#34;dataset&#34;,
+                &#34;table&#34;,
+                &#34;last_updated&#34;,
+                &#34;temporal_coverage&#34;,
+                &#34;updated_frequency&#34;,
+            ],
+            axis=1,
+        )
+        dfs.append(df)
+
+    df = dfs[0].append(dfs[1:])
+    df[&#34;link&#34;] = df[&#34;dataset&#34;].map(datasets_links)
+    df[&#34;last_updated&#34;] = [
+        datetime.strptime(date, &#34;%Y-%m-%d %H:%M:%S&#34;)
+        if isinstance(date, str)
+        else np.nan
+        for date in pd.to_datetime(df[&#34;last_updated&#34;], errors=&#34;coerce&#34;).dt.strftime(
+            &#34;%Y-%m-%d %H:%M:%S&#34;
+        )
+    ]
+    df.dropna(
+        subset=[&#34;last_updated&#34;, &#34;temporal_coverage&#34;, &#34;updated_frequency&#34;], inplace=True
+    )
+    df[&#34;temporal_coverage&#34;] = [
+        k[0] if len(k) &gt; 0 else k for k in df[&#34;temporal_coverage&#34;]
+    ]
+    df.reset_index(drop=True, inplace=True)
+    df.sort_values(&#34;last_updated&#34;, ascending=False, inplace=True)
+    df = df[df.dataset.isin(selected_datasets)]
+    df = df[
+        df[&#34;last_updated&#34;].apply(lambda x: x.timestamp())
+        &gt; (datetime.now() - pd.Timedelta(hours=hours)).timestamp()
+    ]
+
+    if not df.empty:
+        os.system(&#34;mkdir -p /tmp/data/&#34;)
+        df.to_csv(&#34;/tmp/data/updated_tables.csv&#34;)
+        return True
+    return False
+
+
+@task(
+    max_retries=constants.TASK_MAX_RETRIES.value,
+    retry_delay=timedelta(seconds=constants.TASK_RETRY_DELAY.value),
+)
+def message_last_tables() -&gt; list:
+    &#34;&#34;&#34;
+    Sends one tweet for each new table added recently. Uses 10 seconds interval for each new tweet
+    &#34;&#34;&#34;
+
+    dataframe = pd.read_csv(&#34;/tmp/data/updated_tables.csv&#34;)
+    datasets = dataframe.dataset.unique()
+
+    for dataset in datasets:
+        tables = dataframe[dataframe.dataset == dataset].table.to_list()
+        coverages = dataframe[dataframe.dataset == dataset].temporal_coverage.to_list()
+        updated_frequencies = dataframe[
+            dataframe.dataset == dataset
+        ].updated_frequency.to_list()
+        links = dataframe[dataframe.dataset == dataset].link.to_list()
+        main_tweet = f&#34;&#34;&#34;📣 O conjunto #{dataset.lower()} foi atualizado no data lake da @basedosdados\n\nAcesse por aqui ⤵️\n{links[0]}
+        &#34;&#34;&#34;
+        thread = &#34;As tabelas atualizadas foram:\n&#34;
+
+        dict_frequency = {
+            &#34;day&#34;: &#34;diários&#34;,
+            &#34;month&#34;: &#34;anuais&#34;,
+            &#34;one_year&#34;: &#34;anuais&#34;,
+            &#34;two_years&#34;: &#34;bianuais&#34;,
+            &#34;recurring&#34;: &#34;recorrentes&#34;,
+        }
+        i = 1
+        for table, coverage, updated_frequency in zip(
+            tables, coverages, updated_frequencies
+        ):
+            if len(coverage.split(&#34;(&#34;)[0]) == 4:
+                thread = (
+                    thread
+                    + f&#34;{str(i)+&#39;)&#39;} {table}. Esses dados são {dict_frequency[updated_frequency]} e agora cobrem o período entre {coverage.split(&#39;(&#39;)[0]} e {coverage.split(&#39;)&#39;)[1]}\n&#34;
+                )
+            elif len(coverage.split(&#34;(&#34;)[0]) == 7:
+                thread = (
+                    thread
+                    + f&#34;{str(i)+&#39;)&#39;} {table}. Esses dados são {dict_frequency[updated_frequency]} e agora cobrem o período entre {coverage.split(&#39;(&#39;)[0]} e {coverage.split(&#39;)&#39;)[1]}\n&#34;
+                )
+            elif len(coverage.split(&#34;(&#34;)[0]) == 10:
+                thread = (
+                    thread
+                    + f&#34;{str(i)+&#39;)&#39;} {table}. Esses dados são {dict_frequency[updated_frequency]} e agora cobrem o período entre {coverage.split(&#39;(&#39;)[0]} e {coverage.split(&#39;)&#39;)[1]}\n&#34;
+                )
+            else:
+                raise ValueError(
+                    f&#34;Coverage information {coverage} doesn&#39;t matchs the BD&#39;s standard.&#34;
+                )
+            i += 1
+
+        next_tweets = thread.split(&#34;\n&#34;)
+        next_tweets = [tweet for tweet in next_tweets if len(tweet) &gt; 0]
+        texts = (
+            [main_tweet] + [next_tweets[0] + &#34;\n&#34; + next_tweets[1]] + next_tweets[2:]
+        )
+
+        return texts
+
+
+@task(
+    max_retries=constants.TASK_MAX_RETRIES.value,
+    retry_delay=timedelta(seconds=constants.TASK_RETRY_DELAY.value),
+)
+def message_inflation_plot(dataset_id: str, table_id: str) -&gt; str:
+    &#34;&#34;&#34;
+    Creates an update plot based on table_id data and returns a text to be used in tweet.
+    &#34;&#34;&#34;
+    os.system(&#34;mkdir -p /tmp/plots/&#34;)
+
+    blobs = get_storage_blobs(dataset_id=&#34;br_ibge_ipca&#34;, table_id=&#34;mes_brasil&#34;)
+
+    if len(blobs) != 0:
+        dfs = []
+        for blob in blobs:
+            url_data = blob.public_url
+            df = pd.read_csv(url_data, dtype={&#34;id&#34;: str})
+            dfs.append(df)
+
+    # pylint: disable=W0108
+    df[&#34;date&#34;] = (
+        df[&#34;ano&#34;].apply(lambda x: str(x))
+        + &#34;-&#34;
+        + df[&#34;mes&#34;].apply(lambda x: str(x).zfill(2))
+    ).apply(lambda x: datetime.strptime(x, &#34;%Y-%m&#34;))
+    dict_month = {
+        1: &#34;Janeiro&#34;,
+        2: &#34;Fevereiro&#34;,
+        3: &#34;Março&#34;,
+        4: &#34;Abril&#34;,
+        5: &#34;Maio&#34;,
+        6: &#34;Junho&#34;,
+        7: &#34;Julho&#34;,
+        8: &#34;Agosto&#34;,
+        9: &#34;Setembro&#34;,
+        10: &#34;Outubro&#34;,
+        11: &#34;Novembro&#34;,
+        12: &#34;Dezembro&#34;,
+    }
+    df[&#34;mes&#34;] = df[&#34;mes&#34;].map(dict_month)
+    df.sort_values(&#34;date&#34;, inplace=True)
+    last_data = df.iloc[-1, :][&#34;variacao_doze_meses&#34;]
+    last_month = df.iloc[-1, :][&#34;mes&#34;]
+    indice = &#34;IPCA&#34;
+
+    text = f&#34;Em {last_month}, a inflação acumulada nos últimos 12 meses medida pelo {indice} foi de {str(last_data).replace(&#39;.&#39;,&#39;,&#39;)}%&#34;
+
+    log(last_data)
+    df.set_index(&#34;date&#34;, inplace=True)
+    df = df[df.index.year.isin(list(range(2015, 2022)))]
+
+    sns.set_style(&#34;whitegrid&#34;)
+
+    fig, ax = plt.subplots()
+
+    ax.plot(df[&#34;variacao_doze_meses&#34;], color=&#34;lime&#34;)
+    ax.spines[&#34;right&#34;].set_visible(False)
+    ax.spines[&#34;top&#34;].set_visible(False)
+
+    ax.set_title(&#34;Inflação acumulada - 12 meses (IPCA)&#34;, fontsize=14)
+
+    filepath = &#34;/tmp/plots/inflation.jpeg&#34;
+
+    fig.savefig(filepath, bbox_inches=&#34;tight&#34;)
+
+    return text
+
+
+@task(
+    max_retries=constants.TASK_MAX_RETRIES.value,
+    retry_delay=timedelta(seconds=constants.TASK_RETRY_DELAY.value),
+)
+def send_thread(
+    access_token: str,
+    access_token_secret: str,
+    consumer_key: str,
+    consumer_secret: str,
+    bearer_token: str,
+    texts: list,
+    is_reply: bool,
+    reply_id: None,
+) -&gt; int:
+    &#34;&#34;&#34;
+    Sends a sequence of tweets at once.
+    &#34;&#34;&#34;
+
+    if any(len(text) &gt; 280 for text in texts):
+        raise ValueError(&#34;Each tweet text must be 280 characters length at most.&#34;)
+
+    client = tweepy.Client(
+        bearer_token=bearer_token,
+        consumer_key=consumer_key,
+        consumer_secret=consumer_secret,
+        access_token=access_token,
+        access_token_secret=access_token_secret,
+    )
+
+    for i, text in enumerate(texts):
+        if i == 0:
+            if is_reply:
+                reply = client.create_tweet(text=text, in_reply_to_tweet_id=reply_id)
+            else:
+                reply = client.create_tweet(text=text)
+        else:
+            reply = client.create_tweet(
+                text=text,
+                in_reply_to_tweet_id=reply.data[&#34;id&#34;],
+            )
+
+    return reply.data[&#34;id&#34;]
+
+
+@task(
+    max_retries=constants.TASK_MAX_RETRIES.value,
+    retry_delay=timedelta(seconds=constants.TASK_RETRY_DELAY.value),
+)
+def send_media(
+    access_token: str,
+    access_token_secret: str,
+    consumer_key: str,
+    consumer_secret: str,
+    text: str,
+    image: str,
+) -&gt; int:
+    &#34;&#34;&#34;
+    Sends a single tweet with a list of medias.
+    &#34;&#34;&#34;
+    # must apply for elevated access https://stackoverflow.com/questions/70134338/tweepy-twitter-api-v2-unable-to-upload-photo-media
+
+    auth = OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token, access_token_secret)
+
+    api = tweepy.API(auth)
+    ret = api.media_upload(filename=image)
+    tweet = api.update_status(media_ids=[ret.media_id_string], status=text)
+
+    return tweet.id</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="pipelines.datasets.botdosdados.tasks.echo"><code class="name flex">
+<span>def <span class="ident">echo</span></span>(<span>message: str) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Logs message as a Task</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@task(
+    max_retries=constants.TASK_MAX_RETRIES.value,
+    retry_delay=timedelta(seconds=constants.TASK_RETRY_DELAY.value),
+)
+def echo(message: str) -&gt; None:
+    &#34;&#34;&#34;
+    Logs message as a Task
+    &#34;&#34;&#34;
+    log(message)</code></pre>
+</details>
+</dd>
+<dt id="pipelines.datasets.botdosdados.tasks.get_credentials"><code class="name flex">
+<span>def <span class="ident">get_credentials</span></span>(<span>secret_path: str) ‑> Tuple[str, str, str, str, str]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the user and password for the given secret path.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@task(checkpoint=False, nout=5)
+def get_credentials(secret_path: str) -&gt; Tuple[str, str, str, str, str]:
+    &#34;&#34;&#34;
+    Returns the user and password for the given secret path.
+    &#34;&#34;&#34;
+    log(f&#34;Getting user and password for secret path: {secret_path}&#34;)
+    tokens_dict = get_credentials_from_secret(secret_path)
+    access_token_secret = tokens_dict[&#34;ACCESS_SECRET&#34;]
+    access_token = tokens_dict[&#34;ACCESS_TOKEN&#34;]
+    consumer_key = tokens_dict[&#34;CONSUMER_KEY&#34;]
+    consumer_secret = tokens_dict[&#34;CONSUMER_SECRET&#34;]
+    twitter_token = tokens_dict[&#34;TWITTER_TOKEN&#34;]
+
+    return (
+        access_token_secret,
+        access_token,
+        consumer_key,
+        consumer_secret,
+        twitter_token,
+    )</code></pre>
+</details>
+</dd>
+<dt id="pipelines.datasets.botdosdados.tasks.message_inflation_plot"><code class="name flex">
+<span>def <span class="ident">message_inflation_plot</span></span>(<span>dataset_id: str, table_id: str) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates an update plot based on table_id data and returns a text to be used in tweet.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@task(
+    max_retries=constants.TASK_MAX_RETRIES.value,
+    retry_delay=timedelta(seconds=constants.TASK_RETRY_DELAY.value),
+)
+def message_inflation_plot(dataset_id: str, table_id: str) -&gt; str:
+    &#34;&#34;&#34;
+    Creates an update plot based on table_id data and returns a text to be used in tweet.
+    &#34;&#34;&#34;
+    os.system(&#34;mkdir -p /tmp/plots/&#34;)
+
+    blobs = get_storage_blobs(dataset_id=&#34;br_ibge_ipca&#34;, table_id=&#34;mes_brasil&#34;)
+
+    if len(blobs) != 0:
+        dfs = []
+        for blob in blobs:
+            url_data = blob.public_url
+            df = pd.read_csv(url_data, dtype={&#34;id&#34;: str})
+            dfs.append(df)
+
+    # pylint: disable=W0108
+    df[&#34;date&#34;] = (
+        df[&#34;ano&#34;].apply(lambda x: str(x))
+        + &#34;-&#34;
+        + df[&#34;mes&#34;].apply(lambda x: str(x).zfill(2))
+    ).apply(lambda x: datetime.strptime(x, &#34;%Y-%m&#34;))
+    dict_month = {
+        1: &#34;Janeiro&#34;,
+        2: &#34;Fevereiro&#34;,
+        3: &#34;Março&#34;,
+        4: &#34;Abril&#34;,
+        5: &#34;Maio&#34;,
+        6: &#34;Junho&#34;,
+        7: &#34;Julho&#34;,
+        8: &#34;Agosto&#34;,
+        9: &#34;Setembro&#34;,
+        10: &#34;Outubro&#34;,
+        11: &#34;Novembro&#34;,
+        12: &#34;Dezembro&#34;,
+    }
+    df[&#34;mes&#34;] = df[&#34;mes&#34;].map(dict_month)
+    df.sort_values(&#34;date&#34;, inplace=True)
+    last_data = df.iloc[-1, :][&#34;variacao_doze_meses&#34;]
+    last_month = df.iloc[-1, :][&#34;mes&#34;]
+    indice = &#34;IPCA&#34;
+
+    text = f&#34;Em {last_month}, a inflação acumulada nos últimos 12 meses medida pelo {indice} foi de {str(last_data).replace(&#39;.&#39;,&#39;,&#39;)}%&#34;
+
+    log(last_data)
+    df.set_index(&#34;date&#34;, inplace=True)
+    df = df[df.index.year.isin(list(range(2015, 2022)))]
+
+    sns.set_style(&#34;whitegrid&#34;)
+
+    fig, ax = plt.subplots()
+
+    ax.plot(df[&#34;variacao_doze_meses&#34;], color=&#34;lime&#34;)
+    ax.spines[&#34;right&#34;].set_visible(False)
+    ax.spines[&#34;top&#34;].set_visible(False)
+
+    ax.set_title(&#34;Inflação acumulada - 12 meses (IPCA)&#34;, fontsize=14)
+
+    filepath = &#34;/tmp/plots/inflation.jpeg&#34;
+
+    fig.savefig(filepath, bbox_inches=&#34;tight&#34;)
+
+    return text</code></pre>
+</details>
+</dd>
+<dt id="pipelines.datasets.botdosdados.tasks.message_last_tables"><code class="name flex">
+<span>def <span class="ident">message_last_tables</span></span>(<span>) ‑> list</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sends one tweet for each new table added recently. Uses 10 seconds interval for each new tweet</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@task(
+    max_retries=constants.TASK_MAX_RETRIES.value,
+    retry_delay=timedelta(seconds=constants.TASK_RETRY_DELAY.value),
+)
+def message_last_tables() -&gt; list:
+    &#34;&#34;&#34;
+    Sends one tweet for each new table added recently. Uses 10 seconds interval for each new tweet
+    &#34;&#34;&#34;
+
+    dataframe = pd.read_csv(&#34;/tmp/data/updated_tables.csv&#34;)
+    datasets = dataframe.dataset.unique()
+
+    for dataset in datasets:
+        tables = dataframe[dataframe.dataset == dataset].table.to_list()
+        coverages = dataframe[dataframe.dataset == dataset].temporal_coverage.to_list()
+        updated_frequencies = dataframe[
+            dataframe.dataset == dataset
+        ].updated_frequency.to_list()
+        links = dataframe[dataframe.dataset == dataset].link.to_list()
+        main_tweet = f&#34;&#34;&#34;📣 O conjunto #{dataset.lower()} foi atualizado no data lake da @basedosdados\n\nAcesse por aqui ⤵️\n{links[0]}
+        &#34;&#34;&#34;
+        thread = &#34;As tabelas atualizadas foram:\n&#34;
+
+        dict_frequency = {
+            &#34;day&#34;: &#34;diários&#34;,
+            &#34;month&#34;: &#34;anuais&#34;,
+            &#34;one_year&#34;: &#34;anuais&#34;,
+            &#34;two_years&#34;: &#34;bianuais&#34;,
+            &#34;recurring&#34;: &#34;recorrentes&#34;,
+        }
+        i = 1
+        for table, coverage, updated_frequency in zip(
+            tables, coverages, updated_frequencies
+        ):
+            if len(coverage.split(&#34;(&#34;)[0]) == 4:
+                thread = (
+                    thread
+                    + f&#34;{str(i)+&#39;)&#39;} {table}. Esses dados são {dict_frequency[updated_frequency]} e agora cobrem o período entre {coverage.split(&#39;(&#39;)[0]} e {coverage.split(&#39;)&#39;)[1]}\n&#34;
+                )
+            elif len(coverage.split(&#34;(&#34;)[0]) == 7:
+                thread = (
+                    thread
+                    + f&#34;{str(i)+&#39;)&#39;} {table}. Esses dados são {dict_frequency[updated_frequency]} e agora cobrem o período entre {coverage.split(&#39;(&#39;)[0]} e {coverage.split(&#39;)&#39;)[1]}\n&#34;
+                )
+            elif len(coverage.split(&#34;(&#34;)[0]) == 10:
+                thread = (
+                    thread
+                    + f&#34;{str(i)+&#39;)&#39;} {table}. Esses dados são {dict_frequency[updated_frequency]} e agora cobrem o período entre {coverage.split(&#39;(&#39;)[0]} e {coverage.split(&#39;)&#39;)[1]}\n&#34;
+                )
+            else:
+                raise ValueError(
+                    f&#34;Coverage information {coverage} doesn&#39;t matchs the BD&#39;s standard.&#34;
+                )
+            i += 1
+
+        next_tweets = thread.split(&#34;\n&#34;)
+        next_tweets = [tweet for tweet in next_tweets if len(tweet) &gt; 0]
+        texts = (
+            [main_tweet] + [next_tweets[0] + &#34;\n&#34; + next_tweets[1]] + next_tweets[2:]
+        )
+
+        return texts</code></pre>
+</details>
+</dd>
+<dt id="pipelines.datasets.botdosdados.tasks.send_media"><code class="name flex">
+<span>def <span class="ident">send_media</span></span>(<span>access_token: str, access_token_secret: str, consumer_key: str, consumer_secret: str, text: str, image: str) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sends a single tweet with a list of medias.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@task(
+    max_retries=constants.TASK_MAX_RETRIES.value,
+    retry_delay=timedelta(seconds=constants.TASK_RETRY_DELAY.value),
+)
+def send_media(
+    access_token: str,
+    access_token_secret: str,
+    consumer_key: str,
+    consumer_secret: str,
+    text: str,
+    image: str,
+) -&gt; int:
+    &#34;&#34;&#34;
+    Sends a single tweet with a list of medias.
+    &#34;&#34;&#34;
+    # must apply for elevated access https://stackoverflow.com/questions/70134338/tweepy-twitter-api-v2-unable-to-upload-photo-media
+
+    auth = OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token, access_token_secret)
+
+    api = tweepy.API(auth)
+    ret = api.media_upload(filename=image)
+    tweet = api.update_status(media_ids=[ret.media_id_string], status=text)
+
+    return tweet.id</code></pre>
+</details>
+</dd>
+<dt id="pipelines.datasets.botdosdados.tasks.send_thread"><code class="name flex">
+<span>def <span class="ident">send_thread</span></span>(<span>access_token: str, access_token_secret: str, consumer_key: str, consumer_secret: str, bearer_token: str, texts: list, is_reply: bool, reply_id: None) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sends a sequence of tweets at once.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@task(
+    max_retries=constants.TASK_MAX_RETRIES.value,
+    retry_delay=timedelta(seconds=constants.TASK_RETRY_DELAY.value),
+)
+def send_thread(
+    access_token: str,
+    access_token_secret: str,
+    consumer_key: str,
+    consumer_secret: str,
+    bearer_token: str,
+    texts: list,
+    is_reply: bool,
+    reply_id: None,
+) -&gt; int:
+    &#34;&#34;&#34;
+    Sends a sequence of tweets at once.
+    &#34;&#34;&#34;
+
+    if any(len(text) &gt; 280 for text in texts):
+        raise ValueError(&#34;Each tweet text must be 280 characters length at most.&#34;)
+
+    client = tweepy.Client(
+        bearer_token=bearer_token,
+        consumer_key=consumer_key,
+        consumer_secret=consumer_secret,
+        access_token=access_token,
+        access_token_secret=access_token_secret,
+    )
+
+    for i, text in enumerate(texts):
+        if i == 0:
+            if is_reply:
+                reply = client.create_tweet(text=text, in_reply_to_tweet_id=reply_id)
+            else:
+                reply = client.create_tweet(text=text)
+        else:
+            reply = client.create_tweet(
+                text=text,
+                in_reply_to_tweet_id=reply.data[&#34;id&#34;],
+            )
+
+    return reply.data[&#34;id&#34;]</code></pre>
+</details>
+</dd>
+<dt id="pipelines.datasets.botdosdados.tasks.was_table_updated"><code class="name flex">
+<span>def <span class="ident">was_table_updated</span></span>(<span>page_size: int, hours: int, subset: str, wait=None) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if there are tables updated within last hour. If True, saves table locally.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@task(
+    max_retries=constants.TASK_MAX_RETRIES.value,
+    retry_delay=timedelta(seconds=constants.TASK_RETRY_DELAY.value),
+)
+def was_table_updated(page_size: int, hours: int, subset: str, wait=None) -&gt; bool:
+    &#34;&#34;&#34;
+    Checks if there are tables updated within last hour. If True, saves table locally.
+    &#34;&#34;&#34;
+
+    # pylint: disable=R0915
+    datasets_links = defaultdict(lambda: &#34;not selected&#34;)
+    datasets_links[
+        &#34;mundo_transfermarkt_competicoes&#34;
+    ] = &#34;https://basedosdados.org/dataset/mundo-transfermarkt-competicoes&#34;
+    datasets_links[
+        &#34;br_me_caged.microdados_antigos&#34;
+    ] = &#34;https://basedosdados.org/dataset/br-me-caged&#34;
+    datasets_links[&#34;br_ibge_inpc&#34;] = &#34;https://basedosdados.org/dataset/br-ibge-inpc&#34;
+    datasets_links[&#34;br_ibge_ipca&#34;] = &#34;https://basedosdados.org/dataset/br-ibge-ipca&#34;
+    datasets_links[&#34;br_ibge_ipca15&#34;] = &#34;https://basedosdados.org/dataset/br-ibge-ipca15&#34;
+    datasets_links[
+        &#34;br_anp_precos_combustiveis&#34;
+    ] = &#34;https://basedosdados.org/dataset/br-anp-precos-combustiveis&#34;
+    datasets_links[
+        &#34;br_poder360_pesquisas&#34;
+    ] = &#34;https://basedosdados.org/dataset/br-poder360-pesquisas&#34;
+    datasets_links[&#34;br_ms_cnes&#34;] = &#34;https://basedosdados.org/dataset/br-ms-cnes&#34;
+    datasets_links[
+        &#34;br_camara_atividade_legislativa&#34;
+    ] = &#34;https://basedosdados.org/dataset/br-camara-atividade-legislativa&#34;
+    datasets_links[&#34;br_ibge_pnadc&#34;] = &#34;https://basedosdados.org/dataset/br-ibge-pnadc&#34;
+    datasets_links[
+        &#34;br_ana_reservatorios&#34;
+    ] = &#34;https://basedosdados.org/dataset/br-ana-reservatorios&#34;
+
+    if subset == &#34;inflation&#34;:
+        datasets_links = {
+            k: v
+            for k, v in datasets_links.items()
+            if k in [&#34;br_ibge_inpc&#34;, &#34;br_ibge_ipca&#34;, &#34;br_ibge_ipca15&#34;]
+        }
+    else:
+        raise ValueError(&#34;Subset must me one of the following: inflation&#34;)
+
+    selected_datasets = list(datasets_links.keys())
+
+    url = f&#34;https://basedosdados.org/api/3/action/bd_dataset_search?q=&amp;resource_type=bdm_table&amp;page=1&amp;page_size={page_size}&#34;
+    response = _safe_fetch(url)
+    json_response = response.json()
+    datasets = json_response[&#34;result&#34;][&#34;datasets&#34;]
+    n_datasets = len(datasets)
+    dfs = []
+    for index in range(n_datasets):
+        dataset_dict = datasets[index]
+        for j in range(len(dataset_dict[&#34;resources&#34;])):
+            if dataset_dict[&#34;resources&#34;][j][&#34;resource_type&#34;] == &#34;bdm_table&#34;:
+                dataset_name = dataset_dict[&#34;resources&#34;][j][&#34;dataset_id&#34;]
+                break
+            continue
+        n_tables = len(dataset_dict[&#34;resources&#34;])
+        dataset_resources = [
+            dataset_dict[&#34;resources&#34;][k]
+            for k in range(n_tables)
+            if &#34;last_updated&#34; in dataset_dict[&#34;resources&#34;][k].keys()
+        ]
+        dataset_resources = [
+            dataset_resource
+            for dataset_resource in dataset_resources
+            if dataset_resource[&#34;last_updated&#34;] is not None
+        ]
+        dataset_resources = [
+            dataset_resource
+            for dataset_resource in dataset_resources
+            if dataset_resource[&#34;resource_type&#34;] == &#34;bdm_table&#34;
+        ]
+        n_tables = len(dataset_resources)
+        tables = [dataset_resources[k][&#34;name&#34;] for k in range(n_tables)]
+        last_updated = [
+            dataset_resources[k][&#34;last_updated&#34;][&#34;data&#34;] for k in range(n_tables)
+        ]
+        temporal_coverage = [
+            dataset_resources[k][&#34;temporal_coverage&#34;] for k in range(n_tables)
+        ]
+        updated_frequency = [
+            dataset_resources[k][&#34;update_frequency&#34;] for k in range(n_tables)
+        ]
+        df = pd.DataFrame(
+            {
+                &#34;table&#34;: tables,
+                &#34;last_updated&#34;: last_updated,
+                &#34;temporal_coverage&#34;: temporal_coverage,
+                &#34;updated_frequency&#34;: updated_frequency,
+            }
+        )
+        df[&#34;dataset&#34;] = dataset_name
+        df = df.reindex(
+            [
+                &#34;dataset&#34;,
+                &#34;table&#34;,
+                &#34;last_updated&#34;,
+                &#34;temporal_coverage&#34;,
+                &#34;updated_frequency&#34;,
+            ],
+            axis=1,
+        )
+        dfs.append(df)
+
+    df = dfs[0].append(dfs[1:])
+    df[&#34;link&#34;] = df[&#34;dataset&#34;].map(datasets_links)
+    df[&#34;last_updated&#34;] = [
+        datetime.strptime(date, &#34;%Y-%m-%d %H:%M:%S&#34;)
+        if isinstance(date, str)
+        else np.nan
+        for date in pd.to_datetime(df[&#34;last_updated&#34;], errors=&#34;coerce&#34;).dt.strftime(
+            &#34;%Y-%m-%d %H:%M:%S&#34;
+        )
+    ]
+    df.dropna(
+        subset=[&#34;last_updated&#34;, &#34;temporal_coverage&#34;, &#34;updated_frequency&#34;], inplace=True
+    )
+    df[&#34;temporal_coverage&#34;] = [
+        k[0] if len(k) &gt; 0 else k for k in df[&#34;temporal_coverage&#34;]
+    ]
+    df.reset_index(drop=True, inplace=True)
+    df.sort_values(&#34;last_updated&#34;, ascending=False, inplace=True)
+    df = df[df.dataset.isin(selected_datasets)]
+    df = df[
+        df[&#34;last_updated&#34;].apply(lambda x: x.timestamp())
+        &gt; (datetime.now() - pd.Timedelta(hours=hours)).timestamp()
+    ]
+
+    if not df.empty:
+        os.system(&#34;mkdir -p /tmp/data/&#34;)
+        df.to_csv(&#34;/tmp/data/updated_tables.csv&#34;)
+        return True
+    return False</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pipelines.datasets.botdosdados" href="index.html">pipelines.datasets.botdosdados</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="pipelines.datasets.botdosdados.tasks.echo" href="#pipelines.datasets.botdosdados.tasks.echo">echo</a></code></li>
+<li><code><a title="pipelines.datasets.botdosdados.tasks.get_credentials" href="#pipelines.datasets.botdosdados.tasks.get_credentials">get_credentials</a></code></li>
+<li><code><a title="pipelines.datasets.botdosdados.tasks.message_inflation_plot" href="#pipelines.datasets.botdosdados.tasks.message_inflation_plot">message_inflation_plot</a></code></li>
+<li><code><a title="pipelines.datasets.botdosdados.tasks.message_last_tables" href="#pipelines.datasets.botdosdados.tasks.message_last_tables">message_last_tables</a></code></li>
+<li><code><a title="pipelines.datasets.botdosdados.tasks.send_media" href="#pipelines.datasets.botdosdados.tasks.send_media">send_media</a></code></li>
+<li><code><a title="pipelines.datasets.botdosdados.tasks.send_thread" href="#pipelines.datasets.botdosdados.tasks.send_thread">send_thread</a></code></li>
+<li><code><a title="pipelines.datasets.botdosdados.tasks.was_table_updated" href="#pipelines.datasets.botdosdados.tasks.was_table_updated">was_table_updated</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
